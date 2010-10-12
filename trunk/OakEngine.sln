@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C# Express 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OakEngine", "OakEngine\OakEngine.csproj", "{AF4FEE54-E6EA-480E-B2FF-7D8EA5DD72FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer Physics 3.0 XNA", "Farseer Physics Engine 3.0 XNA\Farseer Physics 3.0 XNA.csproj", "{0A850700-1ABB-4288-A391-6726B90EBEB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,12 @@ Global
 		{AF4FEE54-E6EA-480E-B2FF-7D8EA5DD72FB}.Release|x86.Build.0 = Release|x86
 		{2D61A494-D39D-4982-BE81-B830E825D290}.Debug|x86.ActiveCfg = Debug|x86
 		{2D61A494-D39D-4982-BE81-B830E825D290}.Release|x86.ActiveCfg = Release|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|x86.ActiveCfg = Debug|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|x86.Build.0 = Debug|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|x86.ActiveCfg = Release|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|x86.Build.0 = Release|x86
+		{129EF00A-26E6-4835-8DB3-848CB89276DA}.Debug|x86.ActiveCfg = Debug|x86
+		{129EF00A-26E6-4835-8DB3-848CB89276DA}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
