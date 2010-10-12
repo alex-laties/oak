@@ -83,6 +83,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Console\ConsoleKeyMap.cs" />
+    <Compile Include="Engine\Console\GameConsole.cs" />
+    <Compile Include="Engine\Console\IGameConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Oak.cs" />
@@ -143,7 +146,6 @@
   <ItemGroup>
     <Folder Include="Engine\AI\" />
     <Folder Include="Engine\Audio\" />
-    <Folder Include="Engine\Console\" />
     <Folder Include="Engine\Graphics\" />
     <Folder Include="Engine\Input\" />
     <Folder Include="Engine\Physics\" />
