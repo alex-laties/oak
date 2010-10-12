@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace OakEngine.Engine.Console
+namespace Oak.Engine.Console
 {
     /// <summary>
     /// Delegate called when text is entered into the console

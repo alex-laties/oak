@@ -1,6 +1,6 @@
 using System;
 
-namespace OakEngine
+namespace Oak
 {
     static class Program
     {

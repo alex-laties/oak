@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
-namespace OakEngine
+namespace Oak
 {
     /// <summary>
     /// This is the main type for your game
