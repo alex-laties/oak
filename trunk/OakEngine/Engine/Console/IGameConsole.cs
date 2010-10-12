@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Mindshifter
+namespace OakEngine.Engine.Console
 {
     public interface IGameConsole
     {

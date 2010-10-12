@@ -10,7 +10,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace Mindshifter
+namespace OakEngine.Engine.Console
 {
     /// <summary>
     /// Defines the key modifier state for a keyboard key
