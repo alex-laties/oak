@@ -38,6 +38,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arial.spritefont">
+      <Name>Arial</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Engine\" />
     <Folder Include="Game\" />
   </ItemGroup>
