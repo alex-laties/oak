@@ -83,6 +83,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Audio\AudioInstance.cs" />
+    <Compile Include="Engine\Audio\AudioManager.cs" />
     <Compile Include="Engine\Console\ConsoleKeyMap.cs" />
     <Compile Include="Engine\Console\GameConsole.cs" />
     <Compile Include="Engine\Console\IGameConsole.cs" />
@@ -145,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\AI\" />
-    <Folder Include="Engine\Audio\" />
     <Folder Include="Engine\Graphics\" />
     <Folder Include="Engine\Input\" />
     <Folder Include="Engine\Physics\" />
