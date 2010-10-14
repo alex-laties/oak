@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Audio;
 using System.Collections;
 using Microsoft.Xna.Framework;
 
-namespace Oak.Audio
+namespace Oak.Engine.Audio
 {
     /// <summary>
     /// Manages the loading, playing, and disposing of audio

@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework;
 
-namespace Oak.Audio
+namespace Oak.Engine.Audio
 {
     class AudioInstance
     {
