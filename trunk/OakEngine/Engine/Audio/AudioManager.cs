@@ -11,17 +11,17 @@ namespace Oak.Audio
     /// <summary>
     /// Manages the loading, playing, and disposing of audio
     /// </summary>
-    class AudioManager
+    public static class AudioManager
     {   
-        List<AudioInstance> instances;
-        LinkedList<Cue> currentlyPlaying;
-        float volume;
+        static List<AudioInstance> instances;
+        static LinkedList<Cue> currentlyPlaying;
+        static float volume;
 
         /// <summary>
         /// Gets or sets the AudioEmitter.
         /// Can be used to change the emitter position.
         /// </summary>
-        public AudioEmitter Emitter
+        public static AudioEmitter Emitter
         {
             get;
             set;
@@ -31,7 +31,7 @@ namespace Oak.Audio
         /// Gets or sets the AudioListener
         /// Can be used to change the listener position.
         /// </summary>
-        public AudioListener Listener
+        public static AudioListener Listener
         {
             get;
             set;
@@ -41,7 +41,7 @@ namespace Oak.Audio
         /// Gets or sets the current volume level.
         /// Setting a new volume level will update all currently playing sounds as well as all future sounds.
         /// </summary>
-        public float Volume
+        public static float Volume
         {
             get
             {
@@ -54,7 +54,7 @@ namespace Oak.Audio
             }
         }
 
-        public AudioManager()
+        static AudioManager()
         {
             instances = new List<AudioInstance>();
             currentlyPlaying = new LinkedList<Cue>();
@@ -71,7 +71,7 @@ namespace Oak.Audio
         /// <param name="name">The name of the .xgs file, excluding the extension.</param>
         /// <param name="path">Path to the files (the .xgs, .xsb, and .xwb should be in the same directory)</param>
         /// <returns></returns>
-        public bool AddSoundLibrary(string name, string path)
+        public static bool AddSoundLibrary(string name, string path)
         {
             bool success;
             AudioInstance inst;
@@ -82,7 +82,7 @@ namespace Oak.Audio
             return success;
         }
 
-        public void PauseAll()
+        public static void PauseAll()
         {
             foreach (Cue cue in currentlyPlaying)
             {
@@ -90,7 +90,7 @@ namespace Oak.Audio
             }
         }
 
-        public void PlayAll()
+        public static void PlayAll()
         {
             foreach (Cue cue in currentlyPlaying)
             {
@@ -102,12 +102,12 @@ namespace Oak.Audio
         /// Lists all currently playing sounds to the in-game Console.
         /// CURRENTLY NOT WORKING!!!
         /// </summary>
-        public void ListAllToConsole()
+        public static void ListAllToConsole()
         {
             //TODO actually implement this method
         }
 
-        public void ResumeAll()
+        public static void ResumeAll()
         {
             foreach (Cue cue in currentlyPlaying)
             {
@@ -115,7 +115,7 @@ namespace Oak.Audio
             }
         }
 
-        public void StopAll()
+        public static void StopAll()
         {
             foreach (Cue cue in currentlyPlaying)
             {
@@ -123,7 +123,7 @@ namespace Oak.Audio
             }
         }
 
-        private void UpdateVolume()
+        private static void UpdateVolume()
         {
             foreach(AudioInstance inst in instances)
             {
@@ -131,7 +131,7 @@ namespace Oak.Audio
             }
         }
 
-        public Cue PlaySound(string name)
+        public static Cue PlaySound(string name)
         {
             Cue sound = FetchSound(name);
             sound.Disposing += new EventHandler(CueDisposed);
@@ -148,7 +148,7 @@ namespace Oak.Audio
         /// </summary>
         /// <param name="name">Name of the sound</param>
         /// <returns>The sound in question</returns>
-        public Cue FetchSound(string name)
+        public static Cue FetchSound(string name)
         {
             Cue temp = null;
 
@@ -172,7 +172,7 @@ namespace Oak.Audio
             return temp;
         }
 
-        private void CueDisposed(object sender, EventArgs e)
+        private static void CueDisposed(object sender, EventArgs e)
         {
             Cue c = (Cue)sender;
             currentlyPlaying.Remove(c);
