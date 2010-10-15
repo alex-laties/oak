@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="Engine\Scripts\defaultVideo.rs">
       <Name>defaultVideo</Name>
+      <Importer>RageScriptImporter</Importer>
+      <Processor>RageScriptProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
