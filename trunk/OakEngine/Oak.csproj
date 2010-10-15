@@ -110,6 +110,9 @@
     <Compile Include="Engine\Scripting\Interpreter\RageScriptReader.cs" />
     <Compile Include="Engine\Scripting\Interpreter\Repeat.cs" />
     <Compile Include="Engine\Scripting\Interpreter\Run.cs" />
+    <Compile Include="Engine\Input\Input.cs" />
+    <Compile Include="Engine\Input\InputManager.cs" />
+    <Compile Include="Engine\Input\KeyInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Oak.cs" />
@@ -169,7 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\AI\" />
-    <Folder Include="Engine\Input\" />
     <Folder Include="Engine\Physics\" />
     <Folder Include="Game\Levels\" />
     <Folder Include="Game\Scripts\" />
