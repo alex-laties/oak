@@ -52,6 +52,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\RageScriptExtension\RageScriptExtension.csproj">
+      <Project>{20981B9A-5E7B-47C4-AF87-54378773BC85}</Project>
+      <Name>RageScriptExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Engine\" />
     <Folder Include="Game\" />
   </ItemGroup>

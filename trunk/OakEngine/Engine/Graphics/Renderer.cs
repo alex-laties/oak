@@ -24,12 +24,21 @@ namespace Oak.Engine.Graphics
             toRender = new List<Renderable>();
         }
 
+        /// <summary>
+        /// Adds a renderable object in the form of the Renderable struct
+        /// </summary>
+        /// <param name="toAdd"></param>
+        /// <returns>The added struct</returns>
         public static Renderable AddRenderable(Renderable toAdd)
         {
             toRender.Add(toAdd);
             return toAdd;
         }
 
+        /// <summary>
+        /// Removes all renderable objects from the render list
+        /// </summary>
+        /// <returns>A copy of the list before the clearing was executed</returns>
         public static List<Renderable> RemoveRenderables()
         {
             List<Renderable> newList = new List<Renderable>(toRender);

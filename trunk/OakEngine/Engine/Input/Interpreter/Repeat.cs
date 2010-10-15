@@ -24,7 +24,7 @@ namespace Oak.Engine.Scripting
 
             for (int i = 0; i < repeats; i++)
             {
-                Oak.console.Log("Running " + func);
+                Interpreter.Console.Log("Running " + func);
                 Interpreter.run(func);
             }
         }

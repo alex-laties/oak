@@ -12,10 +12,9 @@ namespace Oak.Engine.Scripting
 
         public void run(string function)
         {
-            /* TODO rework all of this
             string[] command = function.Split(Interpreter.Mask);
-
-            RageScript rs = Game1.DefaultContent.Load<RageScript>("./Scripts/" + command[1]);
+            
+            RageScript rs = Oak.ContentAccess.Load<RageScript>(command[1]);
             StreamReader reader = new StreamReader(rs.stream);
 
             LinkedList<string> file = new LinkedList<string>();
@@ -31,7 +30,7 @@ namespace Oak.Engine.Scripting
             }
 
             rs.Unload();
-             */
+             
         }
 
         #endregion

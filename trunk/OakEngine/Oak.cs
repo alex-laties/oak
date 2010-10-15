@@ -21,8 +21,12 @@ namespace Oak
     public class Oak : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        internal static IGameConsole console;
+        public static ContentManager ContentAccess
+        {
+            get;
+            private set;
+        }
+
 
         public Oak()
         {
@@ -40,7 +44,11 @@ namespace Oak
         {
             // TODO: Add your initialization logic here
             GameConsole.Initialize(this, "monofur", Color.White, Color.Gray, 0.8f, 10);
-            console = (IGameConsole)Services.GetService(typeof(IGameConsole));
+            Interpreter.Console = (IGameConsole)Services.GetService(typeof(IGameConsole));
+            Interpreter.Initialize();
+
+            //Add access to the ContentManager
+            ContentAccess = Content;
             base.Initialize();
         }
 
@@ -50,8 +58,6 @@ namespace Oak
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
         }

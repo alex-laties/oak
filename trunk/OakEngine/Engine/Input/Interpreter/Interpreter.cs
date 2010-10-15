@@ -13,6 +13,7 @@ namespace Oak.Engine.Scripting
         static StringBuilder commandBuffer;
         static Dictionary<string, IInterpretable> functions;
         static Dictionary<string, string> env;
+        
         public static Dictionary<string, string> Env
         {
             get
@@ -21,20 +22,28 @@ namespace Oak.Engine.Scripting
             }
         }
 
+        public static IGameConsole Console
+        {
+            get;
+            set;
+        }
 
         public static Char[] Mask = new Char[] { ' ' };
 
         Interpreter()
+        { }
+
+        public static void Initialize()
         {
             functions = new Dictionary<string, IInterpretable>();
-            env = new Dictionary<string,string>();
+            env = new Dictionary<string, string>();
             commandBuffer = new StringBuilder();
             commandQueue = new LinkedList<string>();
             commandDelay = 0;
             loadFunctions();
         }
 
-        private void loadFunctions()
+        private static void loadFunctions()
         {
             #region interpreterBinds
 
@@ -55,10 +64,10 @@ namespace Oak.Engine.Scripting
             
             #endregion
 
-            /*foreach (string key in functions.Keys)
+            foreach (string key in functions.Keys)
             {
-                Game1.console.BindCommandHandler(key, new ConsoleCommandHandler(run), new Char[] { ' ' });
-            }*/
+                Console.BindCommandHandler(key, new ConsoleCommandHandler(run), new Char[] { ' ' });
+            }
         }
 
         private static void runQueue()
@@ -100,7 +109,7 @@ namespace Oak.Engine.Scripting
                     }
                     catch (Exception e)
                     {
-                        Oak.console.Log(e.Message);
+                        Console.Log(e.Message);
                     }
                 }
             }
@@ -176,7 +185,7 @@ namespace Oak.Engine.Scripting
                 if (function == String.Empty)
                     return;
 
-                Oak.console.Log(e.Message);
+                Console.Log(e.Message);
             }
             #endregion
         }
