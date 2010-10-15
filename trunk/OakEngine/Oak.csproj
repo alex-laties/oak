@@ -70,6 +70,7 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml">
       <Private>False</Private>
     </Reference>
@@ -85,9 +86,30 @@
   <ItemGroup>
     <Compile Include="Engine\Audio\AudioInstance.cs" />
     <Compile Include="Engine\Audio\AudioManager.cs" />
-    <Compile Include="Engine\Console\ConsoleKeyMap.cs" />
-    <Compile Include="Engine\Console\GameConsole.cs" />
-    <Compile Include="Engine\Console\IGameConsole.cs" />
+    <Compile Include="Engine\Graphics\IRenderer.cs" />
+    <Compile Include="Engine\Graphics\Renderer.cs" />
+    <Compile Include="Engine\Scripting\Console\Console.cs" />
+    <Compile Include="Engine\Scripting\Console\ConsoleKeyMap.cs" />
+    <Compile Include="Engine\Scripting\Console\GameConsole.cs" />
+    <Compile Include="Engine\Scripting\Console\IGameConsole.cs" />
+    <Compile Include="Engine\Scripting\Hooks\Bind.cs" />
+    <Compile Include="Engine\Scripting\Hooks\Exit.cs" />
+    <Compile Include="Engine\Scripting\Hooks\Load.cs" />
+    <Compile Include="Engine\Scripting\Hooks\Music.cs" />
+    <Compile Include="Engine\Scripting\Hooks\SetC.cs" />
+    <Compile Include="Engine\Scripting\Hooks\SetV.cs" />
+    <Compile Include="Engine\Scripting\Hooks\Show.cs" />
+    <Compile Include="Engine\Scripting\Hooks\Switch.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\Clear.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\If.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\IInterpretable.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\ILoader.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\Interpreter.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\Let.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\RageScript.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\RageScriptReader.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\Repeat.cs" />
+    <Compile Include="Engine\Scripting\Interpreter\Run.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Oak.cs" />
@@ -147,10 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\AI\" />
-    <Folder Include="Engine\Graphics\" />
     <Folder Include="Engine\Input\" />
     <Folder Include="Engine\Physics\" />
-    <Folder Include="Engine\Scripting\" />
     <Folder Include="Game\Levels\" />
     <Folder Include="Game\Scripts\" />
   </ItemGroup>

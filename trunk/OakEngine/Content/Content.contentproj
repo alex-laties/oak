@@ -45,6 +45,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="monofur.spritefont">
+      <Name>monofur</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Engine\" />
     <Folder Include="Game\" />
   </ItemGroup>

@@ -10,6 +10,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using Oak.Engine.Graphics;
+using Oak.Engine.Scripting;
 
 namespace Oak
 {
@@ -20,6 +22,7 @@ namespace Oak
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        internal static IGameConsole console;
 
         public Oak()
         {
@@ -36,7 +39,8 @@ namespace Oak
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            GameConsole.Initialize(this, "monofur", Color.White, Color.Gray, 0.8f, 10);
+            console = (IGameConsole)Services.GetService(typeof(IGameConsole));
             base.Initialize();
         }
 
@@ -86,6 +90,7 @@ namespace Oak
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            XNARenderer.Draw(gameTime);
 
             base.Draw(gameTime);
         }
