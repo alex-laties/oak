@@ -13,7 +13,7 @@ namespace Oak.Engine.Scripting
         {
             for (int i = 0; i < 10; i++)
             {
-                Game1.console.Log("\n");
+                Interpreter.Console.Log("\n");
             }
         }
 
