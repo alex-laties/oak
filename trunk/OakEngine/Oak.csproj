@@ -88,6 +88,7 @@
     <Compile Include="Engine\Audio\AudioManager.cs" />
     <Compile Include="Engine\Graphics\IRenderer.cs" />
     <Compile Include="Engine\Graphics\Renderer.cs" />
+    <Compile Include="Engine\Input\MouseInput.cs" />
     <Compile Include="Engine\Scripting\Console\Console.cs" />
     <Compile Include="Engine\Scripting\Console\ConsoleKeyMap.cs" />
     <Compile Include="Engine\Scripting\Console\GameConsole.cs" />

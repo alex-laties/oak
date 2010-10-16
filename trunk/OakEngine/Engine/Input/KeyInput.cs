@@ -18,6 +18,11 @@ namespace Oak.Engine.Input
             currentState = Keyboard.GetState();
         }
 
+        public Keys[] KeysPressed
+        {
+            get { return keysPressed; }
+        }
+
         public void Update()
         {
             lastState = currentState;
