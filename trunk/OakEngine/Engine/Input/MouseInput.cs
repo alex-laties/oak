@@ -15,22 +15,12 @@ namespace Oak.Engine.Input
 
     class MouseInput
     {
-        Vector2 mousePos;
+        Vector2 currentPos, lastPos;
         MouseState lastState, currentState;
-
-        public Vector2 MousePosition
-        {
-            get { return mousePos; }
-            set
-            {
-                mousePos = value;
-                Mouse.SetPosition((int)value.X, (int)value.Y);
-            }
-        }
 
         public MouseInput()
         {
-            mousePos = new Vector2();
+            currentPos = new Vector2();
             lastState = new MouseState();
             currentState = Mouse.GetState();
             Update();
@@ -41,9 +31,28 @@ namespace Oak.Engine.Input
             lastState = currentState;
             currentState = Mouse.GetState();
 
-            mousePos = new Vector2(currentState.X, currentState.Y);
+            lastPos = currentPos;
+            currentPos = new Vector2(currentState.X, currentState.Y);
         }
 
+        #region Properties
+        public Vector2 MousePosition
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
+                Mouse.SetPosition((int)value.X, (int)value.Y);
+            }
+        }
+
+        public Vector2 UnitsChanged
+        {
+            get { return currentPos - lastPos; }
+        }
+        #endregion
+
+        #region Boolean Methods
         public bool ButtonHeld(Buttons button)
         {
             switch (button)
@@ -129,5 +138,6 @@ namespace Oak.Engine.Input
                     break;
             }
         }
+        #endregion 
     }
 }

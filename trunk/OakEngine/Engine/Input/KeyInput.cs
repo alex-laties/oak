@@ -31,6 +31,7 @@ namespace Oak.Engine.Input
             keysPressed = currentState.GetPressedKeys();
         }
 
+        #region Boolean Methods
         public bool KeyHeld(Keys key)
         {
             return (lastState.IsKeyDown(key) && currentState.IsKeyDown(key));
@@ -46,5 +47,15 @@ namespace Oak.Engine.Input
             return (lastState.IsKeyUp(key) && currentState.IsKeyDown(key));
         }
 
+        public bool KeyPressed(Keys key)
+        {
+            return currentState.IsKeyDown(key);
+        }
+
+        public bool KeyReleased(Keys key)
+        {
+            return currentState.IsKeyUp(key);
+        }
+        #endregion
     }
 }
