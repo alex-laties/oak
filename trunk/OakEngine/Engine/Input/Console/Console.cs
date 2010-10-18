@@ -13,9 +13,8 @@ namespace Oak.Engine.Scripting
         public void run(string function)
         {
             string[] command = function.Split(Interpreter.Mask);
-
             
-            Oak.console.Open(Keys.OemTilde);
+            Interpreter.Console.Open(Keys.OemTilde);
         }
 
         #endregion

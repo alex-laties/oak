@@ -8,20 +8,21 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Oak.Engine.Graphics
 {
 
-    static class XNARenderer: IRenderer
+    public class XNARenderer: IRenderer
     {
 
-        public static SpriteBatch SpriteBatch
+        public SpriteBatch SpriteBatch
         {
             get;
             set;
         }
 
-        static List<Renderable> toRender;
+        List<Renderable> toRender;
 
-        XNARenderer()
+        public XNARenderer(GraphicsDeviceManager gdm)
         {
             toRender = new List<Renderable>();
+            SpriteBatch = new SpriteBatch(gdm.GraphicsDevice);
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace Oak.Engine.Graphics
         /// </summary>
         /// <param name="toAdd"></param>
         /// <returns>The added struct</returns>
-        public static Renderable AddRenderable(Renderable toAdd)
+        public Renderable AddRenderable(Renderable toAdd)
         {
             toRender.Add(toAdd);
             return toAdd;
@@ -39,14 +40,14 @@ namespace Oak.Engine.Graphics
         /// Removes all renderable objects from the render list
         /// </summary>
         /// <returns>A copy of the list before the clearing was executed</returns>
-        public static List<Renderable> RemoveRenderables()
+        public List<Renderable> RemoveRenderables()
         {
             List<Renderable> newList = new List<Renderable>(toRender);
             toRender.Clear();
             return newList;
         }
 
-        public static void Draw(GameTime time)
+        public void Draw(GameTime time)
         {
             SpriteBatch.Begin();
             foreach (Renderable tr in toRender)

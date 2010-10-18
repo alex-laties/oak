@@ -11,7 +11,7 @@ namespace Oak.Engine.Scripting
 
         public void run(string function)
         {
-            //Game1.exit = true ; TODO rework this
+            throw new NotImplementedException("This function has not been implemented yet"); //TODO implement this...
         }
 
         #endregion

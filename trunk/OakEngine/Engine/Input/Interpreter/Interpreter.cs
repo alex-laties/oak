@@ -30,9 +30,6 @@ namespace Oak.Engine.Scripting
 
         public static Char[] Mask = new Char[] { ' ' };
 
-        Interpreter()
-        { }
-
         public static void Initialize()
         {
             functions = new Dictionary<string, IInterpretable>();
