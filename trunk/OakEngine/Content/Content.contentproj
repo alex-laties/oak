@@ -58,6 +58,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Test Graphics\Backgrounds\dark forest.jpg">
+      <Name>dark forest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Engine\Test Graphics\Backgrounds\forest.jpg">
+      <Name>forest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Engine\Test Graphics\Backgrounds\swamp.jpg">
+      <Name>swamp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Game\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

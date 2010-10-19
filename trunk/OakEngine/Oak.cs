@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using Oak.Engine.Graphics;
 using Oak.Engine.Scripting;
+using Oak.Engine.Entities;
 
 namespace Oak
 {
@@ -21,6 +22,9 @@ namespace Oak
     public class Oak : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+
+        GraphicsManager gm;
+
         public static ContentManager ContentAccess
         {
             get;
@@ -51,6 +55,18 @@ namespace Oak
 
             //Add access to the ContentManager
             ContentAccess = Content;
+
+            //Set up World
+            BaseWorld world = new BaseWorld();
+            world.WorldTexture = Content.Load<Texture2D>("./Engine/Test Graphics/Backgrounds/forest");
+            world.WorldFrame = new Rectangle(0, 0, world.WorldTexture.Width, world.WorldTexture.Height);
+
+            //Set up the Graphics Manager
+            gm = new GraphicsManager(graphics);
+            gm.World = world;
+            gm.Width = 1280;
+            gm.Height = 720;
+
 
             base.Initialize();
         }
@@ -86,7 +102,32 @@ namespace Oak
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            {
+                gm.texelWidth += 1;
+                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            {
+                gm.texelWidth -= 1;
+                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Up))
+            {
+                gm.texelHeight += 1;
+                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Down))
+            {
+                gm.texelHeight -= 1;
+                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
+            }
+
             // TODO: Add your update logic here
+            gm.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -101,7 +142,7 @@ namespace Oak
 
             // TODO: Add your drawing code here
             //XNARenderer.Draw(gameTime);
-
+            gm.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

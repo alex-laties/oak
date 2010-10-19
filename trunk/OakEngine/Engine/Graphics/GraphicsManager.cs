@@ -4,11 +4,19 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Oak.Engine.Entities;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Oak.Engine.Graphics
 {
     class GraphicsManager
     {
+
+        // DEBUG CODE
+        public int texelWidth = 0;
+        public int texelHeight = 0;
+
+        GraphicsDeviceManager gdm;
+
         protected IRenderer Renderer
         {
             get;
@@ -33,24 +41,83 @@ namespace Oak.Engine.Graphics
             }
         }
 
+        public int Width
+        {
+            get
+            {
+                return Camera.WorldView.Width;
+            }
+            set
+            {
+                Camera.UpdateWidth(value > 0 ? value : 1280);
+                gdm.PreferredBackBufferWidth = (value > 0 ? value : 1280);
+                gdm.ApplyChanges();
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return Camera.WorldView.Height;
+            }
+            set
+            {
+                Camera.UpdateHeight(value > 0 ? value : 1280);
+                gdm.PreferredBackBufferHeight = (value > 0 ? value : 1280);
+                gdm.ApplyChanges();
+            }
+        }
+
         public GraphicsManager(GraphicsDeviceManager gdm)
         {
             Renderer = new XNARenderer(gdm);
             Camera = new Camera();
+            this.gdm = gdm;
         }
 
         /// <summary>
         /// Offsets Renderables from world coordinates to view coordinates 
         /// </summary>
-        private void OffsetRenderables()
+        private void OffsetRenderable(Renderable toOffset)
         {
-            //TODO implement this...
+            toOffset.frame.X -= Camera.WorldView.X;
+            toOffset.frame.Y -= Camera.WorldView.Y;
         }
-
 
         public void Update(GameTime time)
         {
-            //TODO implement this...
+            // update camera
+            Camera.Update(time);
+
+            // set up Renderer
+            Renderer.RemoveRenderables();
+
+            // offset renderables and add
+            foreach (Renderable r in Camera.Renderables)
+            {
+                OffsetRenderable(r);
+                Renderer.AddRenderable(r);
+            }
+
+            // create background renderable
+            Renderable background = new Renderable();
+
+            background.texture = World.WorldTexture;
+            background.frame = World.WorldFrame;
+            background.selection = new Rectangle(0,0, texelWidth,texelHeight);
+            background.rotation = 0;
+            background.origin = new Vector2(0, 0);
+            background.tint = Color.White;
+            background.layerDepth = 1;
+            background.effect = SpriteEffects.None;
+
+            Renderer.AddRenderable(background);
+        }
+
+        public void Draw(GameTime time)
+        {
+            Renderer.Draw(time);
         }
     }
 }

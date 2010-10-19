@@ -33,6 +33,21 @@ namespace Oak.Engine.Graphics
             protected set;
         }
 
+        public Camera()
+        {
+            Renderables = new List<Renderable>();
+        }
+
+        public void UpdateWidth(int width)
+        {
+            WorldView = new Rectangle(WorldView.X, WorldView.Y, width, WorldView.Height);
+        }
+
+        public void UpdateHeight(int height)
+        {
+            WorldView = new Rectangle(WorldView.X, WorldView.Y, WorldView.Width, height);
+        }
+
         public void Update(GameTime time)
         {
             Renderables.Clear();

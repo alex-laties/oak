@@ -24,7 +24,7 @@ namespace Oak.Engine.Entities
         public Rectangle WorldFrame
         {
             get;
-            protected set;
+            set;
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Oak.Engine.Entities
         public Texture2D WorldTexture
         {
             get;
-            protected set;
+            set;
         }
 
         public BaseWorld()

@@ -10,14 +10,14 @@ namespace Oak.Engine.Entities
     interface ICharacter
     {
 
-        public Renderable GetRenderable();
+        Renderable GetRenderable();
 
         /// <summary>
         /// Gets the coordinates with reference to the world
         /// </summary>
         /// <returns></returns>
-        public Vector2 GetGlobalCoordinates();
+        Vector2 GetGlobalCoordinates();
 
-        public void Update(GameTime time);
+        void Update(GameTime time);
     }
 }
