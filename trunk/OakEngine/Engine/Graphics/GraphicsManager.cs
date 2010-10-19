@@ -8,23 +8,35 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Oak.Engine.Graphics
 {
-    class GraphicsManager
+    public static class GraphicsManager
     {
-        GraphicsDeviceManager gdm;
+        static GraphicsDeviceManager gdm;
+        public static GraphicsDeviceManager GDM
+        {
+            get
+            {
+                return gdm;
+            }
+            set
+            {
+                Renderer = new XNARenderer(value);
+                gdm = value;
+            }
+        }
 
-        protected IRenderer Renderer
+        static IRenderer Renderer
         {
             get;
             set;
         }
 
-        protected Camera Camera
+        static Camera Camera
         {
             get;
             set;
         }
 
-        public BaseWorld World
+        public static BaseWorld World
         {
             get
             {
@@ -36,7 +48,7 @@ namespace Oak.Engine.Graphics
             }
         }
 
-        public int Width
+        public static int Width
         {
             get
             {
@@ -45,12 +57,12 @@ namespace Oak.Engine.Graphics
             set
             {
                 Camera.UpdateWidth(value > 0 ? value : 1280);
-                gdm.PreferredBackBufferWidth = (value > 0 ? value : 1280);
-                gdm.ApplyChanges();
+                GDM.PreferredBackBufferWidth = (value > 0 ? value : 1280);
+                GDM.ApplyChanges();
             }
         }
 
-        public int Height
+        public static int Height
         {
             get
             {
@@ -59,38 +71,49 @@ namespace Oak.Engine.Graphics
             set
             {
                 Camera.UpdateHeight(value > 0 ? value : 1280);
-                gdm.PreferredBackBufferHeight = (value > 0 ? value : 1280);
-                gdm.ApplyChanges();
+                GDM.PreferredBackBufferHeight = (value > 0 ? value : 1280);
+                GDM.ApplyChanges();
             }
         }
 
-        public GraphicsManager(GraphicsDeviceManager gdm)
+        public static bool FullScreen
         {
-            Renderer = new XNARenderer(gdm);
+            get
+            {
+                return GDM.IsFullScreen;
+            }
+            set
+            {
+                GDM.IsFullScreen = value;
+                GDM.ApplyChanges();
+            }
+        }
+
+        static GraphicsManager()
+        {
             Camera = new Camera();
-            this.gdm = gdm;
         }
 
         /// <summary>
         /// Offsets Renderables from world coordinates to view coordinates 
         /// </summary>
-        private void OffsetRenderable(Renderable toOffset)
+        private static void OffsetRenderable(Renderable toOffset)
         {
             toOffset.frame.X -= Camera.WorldView.X;
             toOffset.frame.Y -= Camera.WorldView.Y;
         }
 
-        public void Left()
+        public static void Left()
         {
             Camera.MoveLeft(1);
         }
 
-        public void Right()
+        public static void Right()
         {
             Camera.MoveRight(1);
         }
 
-        public void Update(GameTime time)
+        public static void Update(GameTime time)
         {
             // update camera
             Camera.Update(time);
@@ -120,7 +143,7 @@ namespace Oak.Engine.Graphics
             Renderer.AddRenderable(background);
         }
 
-        public void Draw(GameTime time)
+        public static void Draw(GameTime time)
         {
             Renderer.Draw(time);
         }

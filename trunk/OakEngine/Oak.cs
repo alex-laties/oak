@@ -23,8 +23,6 @@ namespace Oak
     {
         GraphicsDeviceManager graphics;
 
-        GraphicsManager gm;
-
         public static ContentManager ContentAccess
         {
             get;
@@ -62,10 +60,10 @@ namespace Oak
             world.WorldFrame = new Rectangle(0, 0, world.WorldTexture.Width, world.WorldTexture.Height);
 
             //Set up the Graphics Manager
-            gm = new GraphicsManager(graphics);
-            gm.World = world;
-            gm.Width = 1280;
-            gm.Height = 720;
+            GraphicsManager.GDM = graphics;
+            GraphicsManager.World = world;
+            GraphicsManager.Width = 1280;
+            GraphicsManager.Height = 720;
 
 
             base.Initialize();
@@ -104,12 +102,12 @@ namespace Oak
 
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                gm.Right();
+                GraphicsManager.Right();
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                gm.Left();
+                GraphicsManager.Left();
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
@@ -121,7 +119,7 @@ namespace Oak
             }
 
             // TODO: Add your update logic here
-            gm.Update(gameTime);
+            GraphicsManager.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -134,9 +132,10 @@ namespace Oak
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            //Logical update code
+            Interpreter.Update(gameTime);
             // TODO: Add your drawing code here
-            //XNARenderer.Draw(gameTime);
-            gm.Draw(gameTime);
+            GraphicsManager.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

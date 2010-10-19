@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Oak.Engine.Entities
 {
-    class BaseWorld
+    public class BaseWorld
     {
         /// <summary>
         /// Gets all characters currently in this world

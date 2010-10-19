@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Oak.Engine.Entities
 {
-    interface ICharacter
+    public interface ICharacter
     {
 
         Renderable GetRenderable();

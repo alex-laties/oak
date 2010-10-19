@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Oak.Engine.Graphics;
 
 namespace Oak.Engine.Scripting
 {
@@ -15,32 +16,26 @@ namespace Oak.Engine.Scripting
             command[1] = command[1].ToLower();
             switch (command[1])
             {
-                    /* TODO rework all of this into the eventual screen manager
+                    
                 case "width":
                 case "w":
-                    Game1.DefaultGraphics.PreferredBackBufferWidth =
+                    GraphicsManager.Width =
                         Convert.ToInt32(command[2]);
                     break;
                 case "height":
                 case "h":
-                    Game1.DefaultGraphics.PreferredBackBufferHeight =
+                    GraphicsManager.Height =
                         Convert.ToInt32(command[2]);
                     break;
                 case "fullscreen":
-                    Game1.DefaultGraphics.IsFullScreen = true;
-                    Game1.DefaultGraphics.ApplyChanges();
+                    GraphicsManager.FullScreen = true;
                     break;
                 case "windowed":
-                    Game1.DefaultGraphics.IsFullScreen = false;
-                    Game1.DefaultGraphics.ApplyChanges();
-                    break;
-                case "update":
-                case "u":
-                    Game1.DefaultGraphics.ApplyChanges();
+                    GraphicsManager.FullScreen = false;
                     break;
                 default:
                     throw new ArgumentException("invalid option", command[1]);
-                     */
+                     
             }
         }
 
