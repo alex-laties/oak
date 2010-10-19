@@ -10,11 +10,6 @@ namespace Oak.Engine.Graphics
 {
     class GraphicsManager
     {
-
-        // DEBUG CODE
-        public int texelWidth = 0;
-        public int texelHeight = 0;
-
         GraphicsDeviceManager gdm;
 
         protected IRenderer Renderer
@@ -85,6 +80,16 @@ namespace Oak.Engine.Graphics
             toOffset.frame.Y -= Camera.WorldView.Y;
         }
 
+        public void Left()
+        {
+            Camera.MoveLeft(1);
+        }
+
+        public void Right()
+        {
+            Camera.MoveRight(1);
+        }
+
         public void Update(GameTime time)
         {
             // update camera
@@ -105,9 +110,9 @@ namespace Oak.Engine.Graphics
 
             background.texture = World.WorldTexture;
             background.frame = World.WorldFrame;
-            background.selection = new Rectangle(0,0, texelWidth,texelHeight);
+            background.selection = null;
             background.rotation = 0;
-            background.origin = new Vector2(0, 0);
+            background.origin = new Vector2(Camera.WorldView.X, Camera.WorldView.Y);
             background.tint = Color.White;
             background.layerDepth = 1;
             background.effect = SpriteEffects.None;

@@ -9,13 +9,20 @@ namespace Oak.Engine.Graphics
 {
     class Camera
     {
+        Rectangle worldView;
         /// <summary>
         /// Gets the View into the world. This is scaled to fit the Viewport.
         /// </summary>
         public Rectangle WorldView
         {
-            get;
-            protected set;
+            get 
+            { 
+                return worldView; 
+            }
+            protected set
+            {
+                worldView = value;
+            }
         }
 
         public BaseWorld World
@@ -38,14 +45,24 @@ namespace Oak.Engine.Graphics
             Renderables = new List<Renderable>();
         }
 
+        public void MoveLeft(int pixels)
+        {
+            worldView.X -= pixels;
+        }
+
+        public void MoveRight(int pixels)
+        {
+            worldView.X += pixels;
+        }
+
         public void UpdateWidth(int width)
         {
-            WorldView = new Rectangle(WorldView.X, WorldView.Y, width, WorldView.Height);
+            worldView.Width = width;
         }
 
         public void UpdateHeight(int height)
         {
-            WorldView = new Rectangle(WorldView.X, WorldView.Y, WorldView.Width, height);
+            worldView.Height = height;
         }
 
         public void Update(GameTime time)

@@ -104,26 +104,20 @@ namespace Oak
 
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                gm.texelWidth += 1;
-                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
+                gm.Right();
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                gm.texelWidth -= 1;
-                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
+                gm.Left();
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                gm.texelHeight += 1;
-                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
-                gm.texelHeight -= 1;
-                Interpreter.Console.Log(gm.texelWidth + ", " + gm.texelHeight);
             }
 
             // TODO: Add your update logic here
