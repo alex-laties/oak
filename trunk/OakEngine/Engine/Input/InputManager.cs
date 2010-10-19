@@ -7,23 +7,23 @@ namespace Oak.Engine.Input
 {
     public static class InputManager
     {
-        static KeyInput keyboard;
-        static MouseInput mouse;
 
         static InputManager()
         {
-            keyboard = new KeyInput();
-            mouse = new MouseInput();
+            Keyboard = new KeyInput();
+            Mouse = new MouseInput();
         }
 
         public static KeyInput Keyboard
         {
-            get { return keyboard; }
+            get;
+            set;
         }
 
         public static MouseInput Mouse
         {
-            get { return mouse; }
+            get;
+            set;
         }
     }
 }

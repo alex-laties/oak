@@ -13,7 +13,7 @@ namespace Oak.Engine.Input
         RightMouse
     }
 
-    class MouseInput
+    public class MouseInput
     {
         Vector2 currentPos, lastPos;
         MouseState lastState, currentState;
@@ -69,6 +69,8 @@ namespace Oak.Engine.Input
                     //not a registered button
                     break;
             }
+
+            return false;
         }
 
         public bool ButtonReleased(Buttons button)
@@ -87,6 +89,8 @@ namespace Oak.Engine.Input
                     //not a registered button
                     break;
             }
+
+            return false;
         }
 
         public bool NewButtonPress(Buttons button)
@@ -105,6 +109,8 @@ namespace Oak.Engine.Input
                     //not a registered button
                     break;
             }
+
+            return false;
         }
 
         public bool IsButtonDown(Buttons button)
@@ -121,6 +127,8 @@ namespace Oak.Engine.Input
                     //not a registered button
                     break;
             }
+
+            return false;
         }
 
         public bool IsButtonUp(Buttons button)
@@ -137,6 +145,8 @@ namespace Oak.Engine.Input
                     //not a registered button
                     break;
             }
+
+            return false;
         }
         #endregion 
     }

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Oak.Engine.Input
 {
-    class KeyInput
+    public class KeyInput
     {
         KeyboardState lastState, currentState;
 
@@ -52,7 +52,7 @@ namespace Oak.Engine.Input
             return currentState.IsKeyDown(key);
         }
 
-        public bool KeyReleased(Keys key)
+        public bool KeyUnpressed(Keys key)
         {
             return currentState.IsKeyUp(key);
         }
