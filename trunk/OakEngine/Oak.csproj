@@ -89,6 +89,11 @@
     <Compile Include="Engine\Entities\BaseCharacter.cs" />
     <Compile Include="Engine\Entities\BaseWorld.cs" />
     <Compile Include="Engine\Entities\ICharacter.cs" />
+    <Compile Include="Engine\GameScreen\BaseScreen.cs" />
+    <Compile Include="Engine\GameScreen\IMenuItem.cs" />
+    <Compile Include="Engine\GameScreen\ScreenManager.cs" />
+    <Compile Include="Engine\GameScreen\TestScreen.cs" />
+    <Compile Include="Engine\GameScreen\TextItem.cs" />
     <Compile Include="Engine\Graphics\BaseSprite.cs" />
     <Compile Include="Engine\Graphics\Camera.cs" />
     <Compile Include="Engine\Graphics\GraphicsManager.cs" />
@@ -96,9 +101,6 @@
     <Compile Include="Engine\Graphics\IRenderer.cs" />
     <Compile Include="Engine\Graphics\ISpriteCollection.cs" />
     <Compile Include="Engine\Graphics\XNARenderer.cs" />
-    <Compile Include="Engine\Input\Input.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Engine\Input\InputManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -189,7 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\AI\" />
-    <Folder Include="Engine\Physics\" />
     <Folder Include="Game\Levels\" />
     <Folder Include="Game\Scripts\" />
   </ItemGroup>

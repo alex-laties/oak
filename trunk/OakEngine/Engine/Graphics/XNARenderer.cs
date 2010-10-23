@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Oak.Engine.GameScreen;
 
 namespace Oak.Engine.Graphics
 {
@@ -63,6 +64,7 @@ namespace Oak.Engine.Graphics
                     tr.layerDepth
                 );
             }
+            ScreenManager.Draw(SpriteBatch);
             SpriteBatch.End();
         }
     }

@@ -60,17 +60,13 @@ namespace Oak.Engine.Input
                 case Buttons.LeftMouse:
                     return (lastState.LeftButton == ButtonState.Pressed 
                         && currentState.LeftButton == ButtonState.Pressed);
-                    break;
                 case Buttons.RightMouse:
                     return (lastState.RightButton == ButtonState.Pressed
                         && currentState.RightButton == ButtonState.Pressed);
-                    break;
                 default:
                     //not a registered button
-                    break;
+                    return false;
             }
-
-            return false;
         }
 
         public bool ButtonReleased(Buttons button)
@@ -80,17 +76,13 @@ namespace Oak.Engine.Input
                 case Buttons.LeftMouse:
                     return (lastState.LeftButton == ButtonState.Pressed
                         && currentState.LeftButton == ButtonState.Released);
-                    break;
                 case Buttons.RightMouse:
                     return (lastState.RightButton == ButtonState.Pressed
                         && currentState.RightButton == ButtonState.Released);
-                    break;
                 default:
                     //not a registered button
-                    break;
+                    return false;
             }
-
-            return false;
         }
 
         public bool NewButtonPress(Buttons button)
@@ -100,17 +92,13 @@ namespace Oak.Engine.Input
                 case Buttons.LeftMouse:
                     return (lastState.LeftButton == ButtonState.Released
                         && currentState.LeftButton == ButtonState.Pressed);
-                    break;
                 case Buttons.RightMouse:
                     return (lastState.RightButton == ButtonState.Released
                         && currentState.RightButton == ButtonState.Pressed);
-                    break;
                 default:
                     //not a registered button
-                    break;
+                    return false;
             }
-
-            return false;
         }
 
         public bool IsButtonDown(Buttons button)
@@ -119,16 +107,12 @@ namespace Oak.Engine.Input
             {
                 case Buttons.LeftMouse:
                     return (currentState.LeftButton == ButtonState.Pressed);
-                    break;
                 case Buttons.RightMouse:
                     return (currentState.RightButton == ButtonState.Pressed);
-                    break;
                 default:
                     //not a registered button
-                    break;
+                    return false;
             }
-
-            return false;
         }
 
         public bool IsButtonUp(Buttons button)
@@ -137,16 +121,12 @@ namespace Oak.Engine.Input
             {
                 case Buttons.LeftMouse:
                     return (currentState.LeftButton == ButtonState.Released);
-                    break;
                 case Buttons.RightMouse:
                     return (currentState.RightButton == ButtonState.Released);
-                    break;
                 default:
                     //not a registered button
-                    break;
+                    return false;
             }
-
-            return false;
         }
         #endregion 
     }

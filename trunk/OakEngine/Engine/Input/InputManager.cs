@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Oak.Engine.Input
 {
-    public static class InputManager
+    static class InputManager
     {
 
         static InputManager()
@@ -24,6 +24,12 @@ namespace Oak.Engine.Input
         {
             get;
             set;
+        }
+
+        public static void Update()
+        {
+            Keyboard.Update();
+            Mouse.Update();
         }
     }
 }

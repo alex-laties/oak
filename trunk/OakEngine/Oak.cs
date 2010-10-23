@@ -13,6 +13,8 @@ using Microsoft.Xna.Framework.Storage;
 using Oak.Engine.Graphics;
 using Oak.Engine.Scripting;
 using Oak.Engine.Entities;
+using Oak.Engine.GameScreen;
+using Oak.Engine.Input;
 
 namespace Oak
 {
@@ -65,6 +67,8 @@ namespace Oak
             GraphicsManager.Width = 1280;
             GraphicsManager.Height = 720;
 
+            ScreenManager.SetFont(Content.Load<SpriteFont>("monofur"));
+            ScreenManager.AddScreen(new TestScreen());
 
             base.Initialize();
         }
@@ -120,6 +124,8 @@ namespace Oak
 
             // TODO: Add your update logic here
             GraphicsManager.Update(gameTime);
+            InputManager.Update();
+            ScreenManager.Update(gameTime);
 
             base.Update(gameTime);
         }
