@@ -104,6 +104,7 @@
     <Compile Include="Engine\Input\InputManager.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Engine\Input\KeyboardManager.cs" />
     <Compile Include="Engine\Input\KeyInput.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,7 +122,7 @@
     <Compile Include="Engine\Scripting\Hooks\SetC.cs" />
     <Compile Include="Engine\Scripting\Hooks\SetV.cs" />
     <Compile Include="Engine\Scripting\Hooks\Show.cs" />
-    <Compile Include="Engine\Scripting\Hooks\Switch.cs" />
+    <Compile Include="Engine\Scripting\Hooks\SwitchScreen.cs" />
     <Compile Include="Engine\Scripting\Interpreter\Clear.cs" />
     <Compile Include="Engine\Scripting\Interpreter\If.cs" />
     <Compile Include="Engine\Scripting\Interpreter\IInterpretable.cs" />

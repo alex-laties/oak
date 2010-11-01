@@ -75,7 +75,391 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Game\" />
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip01.png">
+      <Name>maincharjumpflip01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip02.png">
+      <Name>maincharjumpflip02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip03.png">
+      <Name>maincharjumpflip03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip04.png">
+      <Name>maincharjumpflip04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip05.png">
+      <Name>maincharjumpflip05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip06.png">
+      <Name>maincharjumpflip06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip07.png">
+      <Name>maincharjumpflip07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip08.png">
+      <Name>maincharjumpflip08</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip09.png">
+      <Name>maincharjumpflip09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip10.png">
+      <Name>maincharjumpflip10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip11.png">
+      <Name>maincharjumpflip11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip12.png">
+      <Name>maincharjumpflip12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Double Jump\maincharjumpflip13.png">
+      <Name>maincharjumpflip13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup01.png">
+      <Name>Maincharjumpup01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup02.png">
+      <Name>Maincharjumpup02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup03.png">
+      <Name>Maincharjumpup03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup04.png">
+      <Name>Maincharjumpup04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup05.png">
+      <Name>Maincharjumpup05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup06.png">
+      <Name>Maincharjumpup06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup07.png">
+      <Name>Maincharjumpup07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup08.png">
+      <Name>Maincharjumpup08</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup09.png">
+      <Name>Maincharjumpup09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup10.png">
+      <Name>Maincharjumpup10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup11.png">
+      <Name>Maincharjumpup11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup12.png">
+      <Name>Maincharjumpup12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup13.png">
+      <Name>Maincharjumpup13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Jump\Maincharjumpup14.png">
+      <Name>Maincharjumpup14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump01.png">
+      <Name>maincharsidejump01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump02.png">
+      <Name>maincharsidejump02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump03.png">
+      <Name>maincharsidejump03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump04.png">
+      <Name>maincharsidejump04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump05.png">
+      <Name>maincharsidejump05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump06.png">
+      <Name>maincharsidejump06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump07.png">
+      <Name>maincharsidejump07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump08.png">
+      <Name>maincharsidejump08</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump09.png">
+      <Name>maincharsidejump09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump10.png">
+      <Name>maincharsidejump10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump11.png">
+      <Name>maincharsidejump11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump12.png">
+      <Name>maincharsidejump12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Lunge\maincharsidejump13.png">
+      <Name>maincharsidejump13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun01.png">
+      <Name>Maincharun01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun02.png">
+      <Name>Maincharun02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun03.png">
+      <Name>Maincharun03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun04.png">
+      <Name>Maincharun04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun05.png">
+      <Name>Maincharun05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun06.png">
+      <Name>Maincharun06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun07.png">
+      <Name>Maincharun07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun08.png">
+      <Name>Maincharun08</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun09.png">
+      <Name>Maincharun09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun10.png">
+      <Name>Maincharun10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Run\Maincharun11.png">
+      <Name>Maincharun11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand01.png">
+      <Name>maincharstand01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand02.png">
+      <Name>maincharstand02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand03.png">
+      <Name>maincharstand03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand04.png">
+      <Name>maincharstand04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand05.png">
+      <Name>maincharstand05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand06.png">
+      <Name>maincharstand06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand07.png">
+      <Name>maincharstand07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand08.png">
+      <Name>maincharstand08</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand09.png">
+      <Name>maincharstand09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand10.png">
+      <Name>maincharstand10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand11.png">
+      <Name>maincharstand11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand12.png">
+      <Name>maincharstand12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Stand\maincharstand13.png">
+      <Name>maincharstand13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk01.png">
+      <Name>maincharwalk01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk02.png">
+      <Name>maincharwalk02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk03.png">
+      <Name>maincharwalk03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk04.png">
+      <Name>maincharwalk04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk05.png">
+      <Name>maincharwalk05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk06.png">
+      <Name>maincharwalk06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk07.png">
+      <Name>maincharwalk07</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk08.png">
+      <Name>maincharwalk08</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk09.png">
+      <Name>maincharwalk09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk10.png">
+      <Name>maincharwalk10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Sprites\Player\Walk\maincharwalk11.png">
+      <Name>maincharwalk11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,7 +9,7 @@ namespace Oak.Engine.Scripting
     static class Interpreter
     {
         static LinkedList<string> commandQueue;
-        static int commandDelay;
+        internal static int commandDelay;
         static StringBuilder commandBuffer;
         static Dictionary<string, IInterpretable> functions;
         static Dictionary<string, string> env;
@@ -57,7 +57,7 @@ namespace Oak.Engine.Scripting
             functions["setv"] = new SetV();
             functions["setc"] = new SetC();
             functions["show"] = new Show();
-            functions["switch"] = new Switch();
+            functions["switchscreen"] = new SwitchScreen();
             
             #endregion
 
@@ -194,6 +194,7 @@ namespace Oak.Engine.Scripting
                 if (commandQueue.Count > 0)
                 {
                     runQueue();
+                    commandDelay = 1;
                 }
                 else
                 {

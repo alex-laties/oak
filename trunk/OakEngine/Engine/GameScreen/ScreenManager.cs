@@ -4,28 +4,52 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Oak.Engine.Scripting;
 
 namespace Oak.Engine.GameScreen
 {
 
     public static class ScreenManager
     {
-        static List<BaseScreen> screens = new List<BaseScreen>();
+        static Dictionary<string, BaseScreen> screens = new Dictionary<string, BaseScreen>();
         public static SpriteFont font;
 
-        public static void AddScreen(BaseScreen screen)
+        public static void AddScreen(string name, BaseScreen screen)
         {
-            screens.Add(screen);
+            screens[name] = screen;
+            screen.State = ScreenStates.Off;
         }
 
-        public static void RemoveScreen(BaseScreen screen)
+        public static void RemoveScreen(string name)
         {
-            screens.Remove(screen);
+            screens.Remove(name);
+        }
+
+        public static void ToggleScreen(string name)
+        {
+            screens[name].State = screens[name].State == ScreenStates.On ? ScreenStates.Off : ScreenStates.On;
+        }
+
+        public static void ToggleScreen(string name, ScreenStates state)
+        {
+            screens[name].State = state;
+        }
+
+        //TODO fix this method
+        public static void FocusScreen(string name)
+        {
+            foreach (BaseScreen screen in screens.Values)
+            {
+                screen.State = ScreenStates.Off;
+            }
+
+            screens[name].State = ScreenStates.On;
+            Interpreter.Console.Log("Sorry, this function is currently a little bugged out.");
         }
 
         public static void Update(GameTime gameTime)
         {
-            foreach (BaseScreen screen in screens)
+            foreach (BaseScreen screen in screens.Values)
             {
                 screen.Update(gameTime);
             }
@@ -33,7 +57,7 @@ namespace Oak.Engine.GameScreen
 
         public static void Draw(SpriteBatch spriteBatch)
         {
-            foreach (BaseScreen screen in screens)
+            foreach (BaseScreen screen in screens.Values)
             {
                 if (screen.State == ScreenStates.On)
                 {

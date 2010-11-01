@@ -51,8 +51,6 @@ namespace Oak
             Interpreter.Console = (IGameConsole)Services.GetService(typeof(IGameConsole));
             Interpreter.Initialize();
 
-            Interpreter.Console.Open(Keys.OemTilde);
-
             //Add access to the ContentManager
             ContentAccess = Content;
 
@@ -67,8 +65,23 @@ namespace Oak
             GraphicsManager.Width = 1280;
             GraphicsManager.Height = 720;
 
+            //set up Screen Manager
             ScreenManager.SetFont(Content.Load<SpriteFont>("monofur"));
-            ScreenManager.AddScreen(new TestScreen());
+            ScreenManager.AddScreen("test", new TestScreen());
+
+            //Set up the Keyboard Manager
+            KeyboardManager.BindKey(Keys.OemTilde, delegate(GameTime time)
+            {
+                if (!Interpreter.Console.IsOpen)
+                {
+                    Interpreter.Console.Open(Keys.OemTilde);
+                }
+            });
+
+            KeyboardManager.BindKey(Keys.A, delegate(GameTime time)
+            {
+                ScreenManager.ToggleScreen("test");
+            });
 
             base.Initialize();
         }
@@ -126,7 +139,7 @@ namespace Oak
             GraphicsManager.Update(gameTime);
             InputManager.Update();
             ScreenManager.Update(gameTime);
-
+            KeyboardManager.Update(gameTime);
             base.Update(gameTime);
         }
 

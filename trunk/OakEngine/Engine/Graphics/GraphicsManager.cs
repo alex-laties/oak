@@ -89,6 +89,14 @@ namespace Oak.Engine.Graphics
             }
         }
 
+        public static Vector2 CameraPosition
+        {
+            get
+            {
+                return new Vector2(Camera.WorldView.X, Camera.WorldView.Y);
+            }
+        }
+
         static GraphicsManager()
         {
             Camera = new Camera();
