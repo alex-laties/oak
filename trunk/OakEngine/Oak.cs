@@ -78,6 +78,12 @@ namespace Oak
                 }
             });
 
+            KeyboardManager.BindKey(Keys.Escape, delegate(GameTime time)
+            {
+                this.Exit();
+            });
+
+            //Debug Keys
             KeyboardManager.BindKey(Keys.A, delegate(GameTime time)
             {
                 ScreenManager.ToggleScreen("test");
@@ -117,23 +123,6 @@ namespace Oak
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
-            {
-                GraphicsManager.Right();
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
-            {
-                GraphicsManager.Left();
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-            {
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Down))
-            {
-            }
 
             // TODO: Add your update logic here
             GraphicsManager.Update(gameTime);
