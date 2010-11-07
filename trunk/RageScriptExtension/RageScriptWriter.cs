@@ -37,7 +37,7 @@ namespace RageScriptExtension
         {
             // TODO: change this to the name of your ContentTypeReader
             // class which will be used to load this data.
-            return "UnderworldEngine.Scripting.RageScriptReader, UnderworldEngine";
+            return "Oak.Engine.Scripting.RageScriptReader, OakEngine";
         }
     }
 }
