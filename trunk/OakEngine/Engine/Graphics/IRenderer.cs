@@ -16,7 +16,7 @@ namespace Oak.Engine.Graphics
         public float rotation;
         public Vector2 origin;
         public SpriteEffects effect;
-        public int layerDepth;
+        public float layerDepth;
     }
 
     interface IRenderer

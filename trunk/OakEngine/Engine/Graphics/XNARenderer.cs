@@ -50,7 +50,7 @@ namespace Oak.Engine.Graphics
 
         public void Draw(GameTime time)
         {
-            SpriteBatch.Begin();
+            SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.FrontToBack, SaveStateMode.SaveState);
             foreach (Renderable tr in toRender)
             {
                 SpriteBatch.Draw(

@@ -15,6 +15,7 @@ using Oak.Engine.Scripting;
 using Oak.Engine.Entities;
 using Oak.Engine.GameScreen;
 using Oak.Engine.Input;
+using Oak.Game.Characters;
 
 namespace Oak
 {
@@ -65,6 +66,10 @@ namespace Oak
             GraphicsManager.Width = 1280;
             GraphicsManager.Height = 720;
 
+            //Create a Player
+            Player p = new Player();
+            GraphicsManager.World.AddCharacter("player", p);
+
             //set up Screen Manager
             ScreenManager.SetFont(Content.Load<SpriteFont>("monofur"));
             ScreenManager.AddScreen("test", new TestScreen());
@@ -88,6 +93,7 @@ namespace Oak
             {
                 ScreenManager.ToggleScreen("test");
             });
+
 
             base.Initialize();
         }

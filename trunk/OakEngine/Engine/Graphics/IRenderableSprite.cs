@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Oak.Engine.Graphics
 {
@@ -13,5 +14,7 @@ namespace Oak.Engine.Graphics
         /// </summary>
         /// <returns></returns>
         Texture2D CurrentTexture();
+
+        void Update(GameTime time);
     }
 }

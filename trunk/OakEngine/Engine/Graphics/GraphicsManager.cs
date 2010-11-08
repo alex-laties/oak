@@ -145,10 +145,11 @@ namespace Oak.Engine.Graphics
             background.rotation = 0;
             background.origin = new Vector2(Camera.WorldView.X, Camera.WorldView.Y);
             background.tint = Color.White;
-            background.layerDepth = 1;
+            background.layerDepth = 0.1f;
             background.effect = SpriteEffects.None;
 
             Renderer.AddRenderable(background);
+            
         }
 
         public static void Draw(GameTime time)

@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Oak.Engine.Graphics;
+using FarseerPhysics.Dynamics;
 
 namespace Oak.Engine.Entities
 {
@@ -19,13 +20,24 @@ namespace Oak.Engine.Entities
             protected set;
         }
 
-        protected BaseSprite Sprite
+        protected IRenderableSprite Sprite
+        {
+            get;
+            set;
+        }
+
+        protected ISpriteCollection SpriteCollection
         {
             get;
             set;
         }
 
         //TODO add physics representation?
+        protected Body Body
+        {
+            get;
+            set;
+        }
 
         #region ICharacter Members
 
@@ -35,7 +47,7 @@ namespace Oak.Engine.Entities
 
             toReturn.frame = Frame;
             toReturn.effect = SpriteEffects.None;
-            toReturn.layerDepth = 0;
+            toReturn.layerDepth = 0.9f;
             toReturn.origin = new Vector2(0, 0);
             toReturn.rotation = 0;
             toReturn.selection = null;
