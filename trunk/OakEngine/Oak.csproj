@@ -14,6 +14,11 @@
     <XnaCrossPlatformGroupID>362f3017-eb87-4686-aa69-4990b299eaf3</XnaCrossPlatformGroupID>
     <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>B2CFDD1F2D453DD9038E93EF58ED6F9AFD792EBC</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Oak_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,10 +29,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -88,20 +93,22 @@
     <Compile Include="Engine\Audio\AudioManager.cs" />
     <Compile Include="Engine\Entities\BaseCharacter.cs" />
     <Compile Include="Engine\Entities\BaseWorld.cs" />
+    <Compile Include="Engine\Entities\Event.cs" />
     <Compile Include="Engine\Entities\ICharacter.cs" />
     <Compile Include="Engine\GameScreen\BaseScreen.cs" />
     <Compile Include="Engine\GameScreen\IMenuItem.cs" />
     <Compile Include="Engine\GameScreen\ScreenManager.cs" />
     <Compile Include="Engine\GameScreen\TestScreen.cs" />
     <Compile Include="Engine\GameScreen\TextItem.cs" />
-    <Compile Include="Engine\Graphics\BaseSprite.cs" />
+    <Compile Include="Engine\Graphics\Sprite\AnimatedSprite.cs" />
+    <Compile Include="Engine\Graphics\Sprite\BaseSprite.cs" />
     <Compile Include="Engine\Graphics\Camera.cs" />
     <Compile Include="Engine\Graphics\GraphicsManager.cs" />
-    <Compile Include="Engine\Graphics\IRenderableSprite.cs" />
-    <Compile Include="Engine\Graphics\IRenderer.cs" />
-    <Compile Include="Engine\Graphics\ISpriteCollection.cs" />
-    <Compile Include="Engine\Graphics\StillSprite.cs" />
-    <Compile Include="Engine\Graphics\XNARenderer.cs" />
+    <Compile Include="Engine\Graphics\Sprite\IRenderableSprite.cs" />
+    <Compile Include="Engine\Graphics\Render\IRenderer.cs" />
+    <Compile Include="Engine\Graphics\Sprite\ISpriteCollection.cs" />
+    <Compile Include="Engine\Graphics\Sprite\StillSprite.cs" />
+    <Compile Include="Engine\Graphics\Render\XNARenderer.cs" />
     <Compile Include="Engine\Input\InputManager.cs">
       <SubType>Code</SubType>
     </Compile>

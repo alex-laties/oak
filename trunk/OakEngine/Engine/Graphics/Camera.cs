@@ -68,6 +68,7 @@ namespace Oak.Engine.Graphics
         public void Update(GameTime time)
         {
             Renderables.Clear();
+            World.Update(time);
             //check for all objects currently in view
             foreach (ICharacter c in World.Characters.Values)
             {

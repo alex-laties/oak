@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Oak.Engine.Scripting;
 
 namespace Oak.Engine.Input
 {
@@ -26,10 +27,31 @@ namespace Oak.Engine.Input
             }
         }
 
+        public static void RebindKey(Keys from, Keys to)
+        {
+            if (keyBinds.ContainsKey(from))
+            {
+                keyBinds[to] = keyBinds[from];
+                keyBinds.Remove(from);
+            }
+        }
+
+        public static void RebindKey(string from, string to)
+        {
+            from = from.ToLower();
+            to = to.ToLower();
+
+            //TODO actually implement this
+        }
+
         public static void Update(GameTime time)
         {
             //TODO make more robust
             keyboard.Update();
+
+            //check to see if console is open. if so, ignore commands
+            if (Interpreter.Console.IsOpen)
+                return;
 
             foreach (Keys key in keyBinds.Keys)
             {

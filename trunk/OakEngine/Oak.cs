@@ -89,10 +89,6 @@ namespace Oak
             });
 
             //Debug Keys
-            KeyboardManager.BindKey(Keys.A, delegate(GameTime time)
-            {
-                ScreenManager.ToggleScreen("test");
-            });
 
 
             base.Initialize();
@@ -124,12 +120,6 @@ namespace Oak
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-                Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
-
-
             // TODO: Add your update logic here
             GraphicsManager.Update(gameTime);
             InputManager.Update();
@@ -145,9 +135,6 @@ namespace Oak
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            //Logical update code
-            Interpreter.Update(gameTime);
             // TODO: Add your drawing code here
             GraphicsManager.Draw(gameTime);
             base.Draw(gameTime);

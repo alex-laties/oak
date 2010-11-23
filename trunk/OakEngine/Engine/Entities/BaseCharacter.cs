@@ -11,13 +11,14 @@ namespace Oak.Engine.Entities
 {
     class BaseCharacter : ICharacter
     {
+
         /// <summary>
         /// Gets the character's display frame with reference to the world
         /// </summary>
+        protected Rectangle frame;
         public Rectangle Frame
         {
-            get;
-            protected set;
+            get { return frame; }
         }
 
         protected IRenderableSprite Sprite
