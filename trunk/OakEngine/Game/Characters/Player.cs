@@ -50,14 +50,7 @@ namespace Oak.Game.Characters
             #endregion
 
             #region Key Setup
-            //walk
-            KeyboardManager.BindKey(Keys.D, new KeyboardManager.KeyBindDelegate(Walk));
-            //stand
-            KeyboardManager.BindKey(Keys.S, new KeyboardManager.KeyBindDelegate(Stand));
-            //jump
-            KeyboardManager.BindKey(Keys.Space, new KeyboardManager.KeyBindDelegate(Jump));
-            //run
-            KeyboardManager.BindKey(Keys.F, new KeyboardManager.KeyBindDelegate(Run));
+            //TODO, maybe even completely factor out
             #endregion
         }
 

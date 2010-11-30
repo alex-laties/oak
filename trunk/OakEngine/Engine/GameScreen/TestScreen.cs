@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Oak.Engine.GameScreen
 {
-    class TestScreen : BaseScreen
+    class TestScreen : MenuScreen
     {
         public TestScreen()
             : base()
         {
-            State = ScreenStates.On;
+            State = ScreenVisibleState.On;
             TextItem textItem = new TextItem("Test Text", ScreenManager.font);
             textItem.Position = new Microsoft.Xna.Framework.Vector2(50, 50);
             AddMenuItem(textItem);
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void UpdateOn(GameTime time)
         {
-
             foreach (IMenuItem item in menuItems)
             {
                 if (item.IsSelected(Input.InputManager.Mouse.MousePosition))
@@ -39,8 +39,7 @@ namespace Oak.Engine.GameScreen
                 }
             }
 
-            base.Update(gameTime);
+            base.UpdateOn(time);
         }
-
     }
 }

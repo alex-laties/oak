@@ -38,14 +38,8 @@ namespace Oak.Engine.Graphics
 
         public static BaseWorld World
         {
-            get
-            {
-                return Camera.World;
-            }
-            set
-            {
-                Camera.World = value;
-            }
+            get;
+            set;
         }
 
         public static int Width
@@ -102,6 +96,11 @@ namespace Oak.Engine.Graphics
             Camera = new Camera();
         }
 
+        public static void AddRenderable(Renderable toAdd)
+        {
+            Renderer.AddRenderable(toAdd);
+        }
+
         /// <summary>
         /// Offsets Renderables from world coordinates to view coordinates 
         /// </summary>
@@ -111,6 +110,7 @@ namespace Oak.Engine.Graphics
             toOffset.frame.Y -= Camera.WorldView.Y;
         }
 
+        #region debug functions
         public static void Left()
         {
             Camera.MoveLeft(1);
@@ -120,14 +120,14 @@ namespace Oak.Engine.Graphics
         {
             Camera.MoveRight(1);
         }
+        #endregion
 
         public static void Update(GameTime time)
         {
             // update camera
             Camera.Update(time);
 
-            // set up Renderer
-            Renderer.RemoveRenderables();
+            
 
             // offset renderables and add
             foreach (Renderable r in Camera.Renderables)
@@ -136,6 +136,7 @@ namespace Oak.Engine.Graphics
                 Renderer.AddRenderable(r);
             }
 
+            //TODO redo this to support multiple backgrounds at different layers
             // create background renderable
             Renderable background = new Renderable();
 
@@ -155,6 +156,8 @@ namespace Oak.Engine.Graphics
         public static void Draw(GameTime time)
         {
             Renderer.Draw(time);
+            // clear queue for next pass
+            Renderer.RemoveRenderables();
         }
     }
 }

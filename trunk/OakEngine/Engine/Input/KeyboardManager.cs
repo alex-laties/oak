@@ -8,18 +8,18 @@ using Oak.Engine.Scripting;
 
 namespace Oak.Engine.Input
 {
-    public static class KeyboardManager
+    public class KeyboardManager
     {
         public delegate void KeyBindDelegate(GameTime time);
-        static Dictionary<Keys, KeyBindDelegate> keyBinds = new Dictionary<Keys, KeyBindDelegate>();
-        static KeyInput keyboard = new KeyInput();
+        Dictionary<Keys, KeyBindDelegate> keyBinds = new Dictionary<Keys, KeyBindDelegate>();
+        KeyInput keyboard = new KeyInput();
 
-        public static void BindKey(Keys key, KeyBindDelegate toBind)
+        public void BindKey(Keys key, KeyBindDelegate toBind)
         {
             keyBinds[key] = toBind;
         }
 
-        public static void UnbindKey(Keys key)
+        public void UnbindKey(Keys key)
         {
             if (keyBinds.ContainsKey(key))
             {
@@ -27,7 +27,7 @@ namespace Oak.Engine.Input
             }
         }
 
-        public static void RebindKey(Keys from, Keys to)
+        public void RebindKey(Keys from, Keys to)
         {
             if (keyBinds.ContainsKey(from))
             {
@@ -36,7 +36,7 @@ namespace Oak.Engine.Input
             }
         }
 
-        public static void RebindKey(string from, string to)
+        public void RebindKey(string from, string to)
         {
             from = from.ToLower();
             to = to.ToLower();
@@ -44,7 +44,7 @@ namespace Oak.Engine.Input
             //TODO actually implement this
         }
 
-        public static void Update(GameTime time)
+        public void Update(GameTime time)
         {
             //TODO make more robust
             keyboard.Update();

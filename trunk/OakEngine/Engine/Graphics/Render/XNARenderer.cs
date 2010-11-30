@@ -53,18 +53,34 @@ namespace Oak.Engine.Graphics
             SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.FrontToBack, SaveStateMode.SaveState);
             foreach (Renderable tr in toRender)
             {
-                SpriteBatch.Draw(
-                    tr.texture,
-                    tr.frame,
-                    tr.selection,
-                    tr.tint,
-                    tr.rotation,
-                    tr.origin,
-                    tr.effect,
-                    tr.layerDepth
-                );
+                if (tr.isText)
+                {
+                    SpriteBatch.DrawString(
+                        tr.font,
+                        tr.text,
+                        tr.textPosition,
+                        tr.tint,
+                        tr.rotation,
+                        tr.origin,
+                        tr.textScale,
+                        tr.effect,
+                        tr.layerDepth
+                    );
+                }
+                else
+                {
+                    SpriteBatch.Draw(
+                        tr.texture,
+                        tr.frame,
+                        tr.selection,
+                        tr.tint,
+                        tr.rotation,
+                        tr.origin,
+                        tr.effect,
+                        tr.layerDepth
+                    );
+                }
             }
-            ScreenManager.Draw(SpriteBatch);
             SpriteBatch.End();
         }
     }

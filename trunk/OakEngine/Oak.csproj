@@ -97,6 +97,7 @@
     <Compile Include="Engine\Entities\ICharacter.cs" />
     <Compile Include="Engine\GameScreen\BaseScreen.cs" />
     <Compile Include="Engine\GameScreen\IMenuItem.cs" />
+    <Compile Include="Engine\GameScreen\MenuScreen.cs" />
     <Compile Include="Engine\GameScreen\ScreenManager.cs" />
     <Compile Include="Engine\GameScreen\TestScreen.cs" />
     <Compile Include="Engine\GameScreen\TextItem.cs" />

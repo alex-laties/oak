@@ -17,7 +17,7 @@ namespace Oak.Engine.GameScreen
         public static void AddScreen(string name, BaseScreen screen)
         {
             screens[name] = screen;
-            screen.State = ScreenStates.Off;
+            //screen.State = ScreenVisibleState.Off;
         }
 
         public static void RemoveScreen(string name)
@@ -27,10 +27,10 @@ namespace Oak.Engine.GameScreen
 
         public static void ToggleScreen(string name)
         {
-            screens[name].State = screens[name].State == ScreenStates.On ? ScreenStates.Off : ScreenStates.On;
+            screens[name].State = screens[name].State == ScreenVisibleState.On ? ScreenVisibleState.Off : ScreenVisibleState.On;
         }
 
-        public static void ToggleScreen(string name, ScreenStates state)
+        public static void ToggleScreen(string name, ScreenVisibleState state)
         {
             screens[name].State = state;
         }
@@ -40,10 +40,10 @@ namespace Oak.Engine.GameScreen
         {
             foreach (BaseScreen screen in screens.Values)
             {
-                screen.State = ScreenStates.Off;
+                screen.State = ScreenVisibleState.Off;
             }
 
-            screens[name].State = ScreenStates.On;
+            screens[name].State = ScreenVisibleState.On;
             Interpreter.Console.Log("Sorry, this function is currently a little bugged out.");
         }
 
@@ -52,17 +52,6 @@ namespace Oak.Engine.GameScreen
             foreach (BaseScreen screen in screens.Values)
             {
                 screen.Update(gameTime);
-            }
-        }
-
-        public static void Draw(SpriteBatch spriteBatch)
-        {
-            foreach (BaseScreen screen in screens.Values)
-            {
-                if (screen.State == ScreenStates.On)
-                {
-                    screen.Draw(spriteBatch);
-                }
             }
         }
 

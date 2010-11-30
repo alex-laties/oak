@@ -4,55 +4,64 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Oak.Engine.Input;
 
 namespace Oak.Engine.GameScreen
 {
-    public enum ScreenStates
+    public enum ScreenVisibleState
     {
         On,
         Off,
+        Transparent
     }
+
+
 
     public class BaseScreen
     {
-        protected List<IMenuItem> menuItems = new List<IMenuItem>();
-        ScreenStates state;
+        protected KeyboardManager kbm;
 
-        public ScreenStates State
+        public ScreenVisibleState State
         {
-            get { return state; }
-            set { state = value; }
+            get;
+            set;
         }
 
         public BaseScreen()
         {
-            
+            kbm = new KeyboardManager();
         }
 
-        public virtual void RemoveMenuItem(IMenuItem item)
+        public void Update(GameTime gameTime)
         {
-            menuItems.Remove(item);
-        }
+            kbm.Update(gameTime);
 
-        public virtual void AddMenuItem(IMenuItem item)
-        {
-            menuItems.Add(item);
-        }
-
-        public virtual void Update(GameTime gameTime)
-        {
-            foreach (IMenuItem item in menuItems)
+            switch (State)
             {
-                item.Update(gameTime);
+                case ScreenVisibleState.On:
+                    UpdateOn(gameTime);
+                    break;
+                case ScreenVisibleState.Off:
+                    UpdateOff(gameTime);
+                    break;
+                case ScreenVisibleState.Transparent:
+                    UpdateTrans(gameTime);
+                    break;
+                default:
+                    break;
             }
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void UpdateOn(GameTime gameTime)
         {
-            for (int i = 0; i < menuItems.Count; i++)
-            {
-                menuItems[i].Draw(spriteBatch);
-            }
+        }
+
+        public virtual void UpdateOff(GameTime gameTime)
+        {
+        }
+
+        public virtual void UpdateTrans(GameTime gameTime)
+        {
         }
     }
 }

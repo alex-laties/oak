@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Oak.Engine.Input;
+using Oak.Engine.Graphics;
 
 namespace Oak.Engine.GameScreen
 {
@@ -12,6 +13,7 @@ namespace Oak.Engine.GameScreen
     {
         string text = "";
         bool selected;
+        Renderable toRender;
 
         Vector2 measurements, position;
         Vector2 drawPos, scale = new Vector2(1,1);
@@ -74,6 +76,7 @@ namespace Oak.Engine.GameScreen
         {
             Font = font;
             Text = text;
+            toRender = new Renderable();
         }
 
         public Vector2 GetPosition()
@@ -117,21 +120,20 @@ namespace Oak.Engine.GameScreen
                 drawPos = position;
                 scale = new Vector2(1, 1);
             }
-        }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.DrawString(
-                font,
-                new StringBuilder(Text),
-                drawPos,
-                Color.White,
-                0f,
-                Vector2.Zero,
-                scale,
-                SpriteEffects.None,
-                1);
-        }
+            //prepare renderable
+            toRender.isText = true;
+            toRender.font = font;
+            toRender.text = text;
+            toRender.textPosition = drawPos;
+            toRender.tint = Color.White;
+            toRender.rotation = 0f;
+            toRender.origin = Vector2.Zero;
+            toRender.textScale = scale;
+            toRender.effect = SpriteEffects.None;
+            toRender.layerDepth = 1.0f;
 
+            GraphicsManager.AddRenderable(toRender);
+        }
     }
 }

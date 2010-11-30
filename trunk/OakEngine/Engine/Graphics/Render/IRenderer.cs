@@ -17,6 +17,12 @@ namespace Oak.Engine.Graphics
         public Vector2 origin;
         public SpriteEffects effect;
         public float layerDepth;
+
+        public bool isText;
+        public string text;
+        public SpriteFont font;
+        public Vector2 textPosition;
+        public Vector2 textScale;
     }
 
     interface IRenderer

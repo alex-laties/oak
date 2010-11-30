@@ -20,11 +20,16 @@ namespace Oak.Engine.Scripting
                     ScreenManager.FocusScreen(command[2]);
                     break;
                 case "on":  
-                    ScreenManager.ToggleScreen(command[2], ScreenStates.On);
+                    ScreenManager.ToggleScreen(command[2], ScreenVisibleState.On);
                     break;
                 case "off":
-                    ScreenManager.ToggleScreen(command[2], ScreenStates.Off);
+                    ScreenManager.ToggleScreen(command[2], ScreenVisibleState.Off);
                     break;
+                case "transparent":
+                    ScreenManager.ToggleScreen(command[2], ScreenVisibleState.Transparent);
+                    break;
+                default:
+                    throw new ArgumentException(command[1] + " is not a valid command");
             }
             
         }

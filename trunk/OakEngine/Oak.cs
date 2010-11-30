@@ -16,6 +16,7 @@ using Oak.Engine.Entities;
 using Oak.Engine.GameScreen;
 using Oak.Engine.Input;
 using Oak.Game.Characters;
+using Oak.Engine.Audio;
 
 namespace Oak
 {
@@ -25,6 +26,7 @@ namespace Oak
     public class Oak : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+        KeyboardManager kbm; //top level keyboard manager. should maintain commands that come before anything else in the update loop
 
         public static ContentManager ContentAccess
         {
@@ -47,7 +49,10 @@ namespace Oak
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            //Initialize Top Level Keyboard Manager
+            kbm = new KeyboardManager();
+
+            //Initialize Console
             GameConsole.Initialize(this, "monofur", Color.White, Color.Gray, 0.8f, 10);
             Interpreter.Console = (IGameConsole)Services.GetService(typeof(IGameConsole));
             Interpreter.Initialize();
@@ -72,10 +77,12 @@ namespace Oak
 
             //set up Screen Manager
             ScreenManager.SetFont(Content.Load<SpriteFont>("monofur"));
-            ScreenManager.AddScreen("test", new TestScreen());
+            TestScreen t = new TestScreen();
+            t.State = ScreenVisibleState.On;
+            ScreenManager.AddScreen("test", t);
 
             //Set up the Keyboard Manager
-            KeyboardManager.BindKey(Keys.OemTilde, delegate(GameTime time)
+            kbm.BindKey(Keys.OemTilde, delegate(GameTime time)
             {
                 if (!Interpreter.Console.IsOpen)
                 {
@@ -83,7 +90,7 @@ namespace Oak
                 }
             });
 
-            KeyboardManager.BindKey(Keys.Escape, delegate(GameTime time)
+            kbm.BindKey(Keys.Escape, delegate(GameTime time)
             {
                 this.Exit();
             });
@@ -120,11 +127,15 @@ namespace Oak
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // TODO: Add your update logic here
-            GraphicsManager.Update(gameTime);
-            InputManager.Update();
+            //top level keyboard manager (for functions that should always be available)
+            kbm.Update(gameTime);
+
+            //CORE GAME UPDATES
+            //Any graphics updates must occur before the GraphicsManager updates
+            Interpreter.Update(gameTime);
             ScreenManager.Update(gameTime);
-            KeyboardManager.Update(gameTime);
+            GraphicsManager.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -135,7 +146,7 @@ namespace Oak
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            // TODO: Add your drawing code here
+
             GraphicsManager.Draw(gameTime);
             base.Draw(gameTime);
         }

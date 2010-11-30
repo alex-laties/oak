@@ -31,10 +31,5 @@ namespace Oak.Engine.GameScreen
         //Updates the menu item
         //</summary>
         void Update(GameTime gameTime);
-
-        //<summary>
-        //Draws the menu item to the screen
-        //</summary>
-        void Draw(SpriteBatch spriteBatch);
     }
 }

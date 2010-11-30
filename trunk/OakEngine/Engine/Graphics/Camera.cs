@@ -25,12 +25,6 @@ namespace Oak.Engine.Graphics
             }
         }
 
-        public BaseWorld World
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// All renderable objects currently in view
         /// </summary>
@@ -55,6 +49,16 @@ namespace Oak.Engine.Graphics
             worldView.X += pixels;
         }
 
+        public void MoveUp(int pixels)
+        {
+            worldView.Y -= pixels;
+        }
+
+        public void MoveDown(int pixels)
+        {
+            worldView.Y += pixels;
+        }
+
         public void UpdateWidth(int width)
         {
             worldView.Width = width;
@@ -68,9 +72,9 @@ namespace Oak.Engine.Graphics
         public void Update(GameTime time)
         {
             Renderables.Clear();
-            World.Update(time);
+            GraphicsManager.World.Update(time);
             //check for all objects currently in view
-            foreach (ICharacter c in World.Characters.Values)
+            foreach (ICharacter c in GraphicsManager.World.Characters.Values)
             {
                 if (c.GetRenderable().frame.Intersects(WorldView))
                 {

@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework;
 
 namespace Oak.Engine.Audio
 {
+    //TODO restructure this, maybe?
+
     /// <summary>
     /// Manages the loading, playing, and disposing of audio
     /// </summary>
