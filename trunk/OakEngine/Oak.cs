@@ -64,22 +64,25 @@ namespace Oak
             BaseWorld world = new BaseWorld();
             world.WorldTexture = Content.Load<Texture2D>("./Engine/Test Graphics/Backgrounds/forest");
             world.WorldFrame = new Rectangle(0, 0, world.WorldTexture.Width, world.WorldTexture.Height);
+            GameScreen gs = new GameScreen();
+            gs.World = world;
+            gs.State = ScreenVisibleState.On;
 
             //Set up the Graphics Manager
             GraphicsManager.GDM = graphics;
-            GraphicsManager.World = world;
             GraphicsManager.Width = 1280;
             GraphicsManager.Height = 720;
 
             //Create a Player
             Player p = new Player();
-            GraphicsManager.World.AddCharacter("player", p);
+            gs.World.AddCharacter("player", p);
 
             //set up Screen Manager
             ScreenManager.SetFont(Content.Load<SpriteFont>("monofur"));
             TestScreen t = new TestScreen();
             t.State = ScreenVisibleState.On;
             ScreenManager.AddScreen("test", t);
+            ScreenManager.AddScreen("world", gs);
 
             //Set up the Keyboard Manager
             kbm.BindKey(Keys.OemTilde, delegate(GameTime time)
@@ -134,6 +137,9 @@ namespace Oak
             //Any graphics updates must occur before the GraphicsManager updates
             Interpreter.Update(gameTime);
             ScreenManager.Update(gameTime);
+            CollisionManager.Update(gameTime);
+
+            //must be last update in loop, for various reasons
             GraphicsManager.Update(gameTime);
 
             base.Update(gameTime);

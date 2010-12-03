@@ -7,6 +7,13 @@ using Microsoft.Xna.Framework;
 
 namespace Oak.Engine.Entities
 {
+    public enum CharacterType
+    {
+        Player,
+        Object,
+        Enemy
+    }
+
     public interface ICharacter
     {
 

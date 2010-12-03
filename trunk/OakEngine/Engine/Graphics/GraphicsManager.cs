@@ -42,6 +42,12 @@ namespace Oak.Engine.Graphics
             set;
         }
 
+        public static bool RenderWorld
+        {
+            get;
+            set;
+        }
+
         public static int Width
         {
             get
@@ -124,33 +130,33 @@ namespace Oak.Engine.Graphics
 
         public static void Update(GameTime time)
         {
-            // update camera
-            Camera.Update(time);
-
-            
-
-            // offset renderables and add
-            foreach (Renderable r in Camera.Renderables)
+            if (RenderWorld)
             {
-                OffsetRenderable(r);
-                Renderer.AddRenderable(r);
+                // update camera
+                Camera.Update(time);
+
+                // offset renderables and add
+                foreach (Renderable r in Camera.Renderables)
+                {
+                    OffsetRenderable(r);
+                    Renderer.AddRenderable(r);
+                }
+
+                //TODO redo this to support multiple backgrounds at different layers
+                // create background renderable
+                Renderable background = new Renderable();
+
+                background.texture = World.WorldTexture;
+                background.frame = World.WorldFrame;
+                background.selection = null;
+                background.rotation = 0;
+                background.origin = new Vector2(Camera.WorldView.X, Camera.WorldView.Y);
+                background.tint = Color.White;
+                background.layerDepth = 0.1f;
+                background.effect = SpriteEffects.None;
+
+                Renderer.AddRenderable(background);
             }
-
-            //TODO redo this to support multiple backgrounds at different layers
-            // create background renderable
-            Renderable background = new Renderable();
-
-            background.texture = World.WorldTexture;
-            background.frame = World.WorldFrame;
-            background.selection = null;
-            background.rotation = 0;
-            background.origin = new Vector2(Camera.WorldView.X, Camera.WorldView.Y);
-            background.tint = Color.White;
-            background.layerDepth = 0.1f;
-            background.effect = SpriteEffects.None;
-
-            Renderer.AddRenderable(background);
-            
         }
 
         public static void Draw(GameTime time)

@@ -19,15 +19,25 @@ namespace Oak.Game.Characters
         Running,
         Jumping,
         DoubleJumping,
-        Lunging
+        Lunging,
+        Attacking
     }
 
-    class Player : BaseCharacter
+    class Player : BaseCharacter, ICollidable
     {
         static string PATH_TO_SPRITES = "./Game/Sprites/Player/";
 
+        public PlayerState State
+        {
+            get;
+            set;
+        }
+
         public Player() : base()
         {
+            //Default State
+            State = PlayerState.Standing;
+
             #region Sprite Setup
             Sprite = new AnimatedSprite();
             AnimatedSprite temp = (AnimatedSprite)Sprite;
@@ -89,5 +99,32 @@ namespace Oak.Game.Characters
             ((AnimatedSprite)Sprite).StopAtEndOfAnimation = false;
             Interpreter.Console.Log("Running");
         }
+
+        #region ICollidable Members
+
+        public virtual void OnCollision(CollisionType type, ICollidable with)
+        {
+            switch (type)
+            {
+                case CollisionType.PlayerHit:
+                    break;
+                case CollisionType.ObjectHit:
+                    break;
+                case CollisionType.EnemyHit:
+                    break;
+            }
+        }
+
+        public Rectangle HitBox()
+        {
+            return Frame;
+        }
+
+        public void HitBox(Rectangle hitbox)
+        {
+            frame = hitbox;
+        }
+
+        #endregion
     }
 }
