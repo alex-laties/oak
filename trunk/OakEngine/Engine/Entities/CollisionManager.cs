@@ -42,19 +42,45 @@ namespace Oak.Engine.Entities
             {
                 foreach (ICollidable o in objects)
                 {
+                    //preliminary cull check
                     if (p.HitBox().Intersects(o.HitBox()))
                     {
-                        p.OnCollision(CollisionType.ObjectHit, o);
-                        o.OnCollision(CollisionType.PlayerHit, p);
+                        //jesus christ this might be O(n^4)...
+                        List<Rectangle> ohbs = o.HitBoxes();
+                        List<Rectangle> phbs = p.HitBoxes();
+
+                        foreach (Rectangle ohb in ohbs)
+                        {
+                            foreach (Rectangle phb in phbs)
+                            {
+                                if (ohb.Intersects(phb))
+                                {
+                                    p.OnCollision(CollisionType.ObjectHit, o, phb);
+                                    o.OnCollision(CollisionType.PlayerHit, p, ohb);
+                                }
+                            }
+                        }
                     }
                 }
 
                 foreach (ICollidable e in enemies)
                 {
-                    if (p.HitBox().Intersects(p.HitBox()))
+                    if (p.HitBox().Intersects(e.HitBox()))
                     {
-                        p.OnCollision(CollisionType.EnemyHit, e);
-                        e.OnCollision(CollisionType.PlayerHit, p);
+                        List<Rectangle> phbs = p.HitBoxes();
+                        List<Rectangle> ehbs = e.HitBoxes();
+
+                        foreach (Rectangle phb in phbs)
+                        {
+                            foreach (Rectangle ehb in ehbs)
+                            {
+                                if (phb.Intersects(ehb))
+                                {
+                                    p.OnCollision(CollisionType.EnemyHit, e, phb);
+                                    e.OnCollision(CollisionType.PlayerHit, p, ehb);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -66,8 +92,20 @@ namespace Oak.Engine.Entities
                 {
                     if (o.HitBox().Intersects(e.HitBox()))
                     {
-                        o.OnCollision(CollisionType.EnemyHit, e);
-                        e.OnCollision(CollisionType.ObjectHit, o);
+                        List<Rectangle> ohbs = o.HitBoxes();
+                        List<Rectangle> ehbs = e.HitBoxes();
+
+                        foreach (Rectangle ohb in ohbs)
+                        {
+                            foreach (Rectangle ehb in ehbs)
+                            {
+                                if (ohb.Intersects(ehb))
+                                {
+                                    o.OnCollision(CollisionType.EnemyHit, e, ohb);
+                                    e.OnCollision(CollisionType.ObjectHit, o, ehb);
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -17,7 +17,7 @@ namespace Oak.Engine.Entities
 
     public interface ICollidable
     {
-        void OnCollision(CollisionType type, ICollidable with);
+        void OnCollision(CollisionType type, ICollidable with, Rectangle collided);
         /// <summary>
         /// Gets the overall hitbox (for preliminary hit detection)
         /// </summary>

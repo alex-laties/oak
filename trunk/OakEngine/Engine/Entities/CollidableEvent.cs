@@ -42,7 +42,7 @@ namespace Oak.Engine.Entities
 
         #region ICollidable Members
 
-        public virtual void OnCollision(CollisionType type, ICollidable with)
+        public virtual void OnCollision(CollisionType type, ICollidable with, Rectangle collided)
         {
             switch (type)
             {
