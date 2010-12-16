@@ -15,10 +15,42 @@ namespace Oak.Engine.Entities
 
     public delegate void OnCollisionDelegate(GameTime time, ICollidable with);
 
-    interface ICollidable
+    public interface ICollidable
     {
         void OnCollision(CollisionType type, ICollidable with);
+        /// <summary>
+        /// Gets the overall hitbox (for preliminary hit detection)
+        /// </summary>
+        /// <returns></returns>
         Rectangle HitBox();
+
+        /// <summary>
+        /// Sets the overall hitbox (for preliminary hit detection)
+        /// </summary>
+        /// <param name="hitbox"></param>
         void HitBox(Rectangle hitbox);
+
+        /// <summary>
+        /// Gets all specific hitboxes (for advanced hit detection)
+        /// </summary>
+        /// <returns></returns>
+        List<Rectangle> HitBoxes();
+        
+        /// <summary>
+        /// Sets all specific hitboxes
+        /// </summary>
+        void HitBoxes(List<Rectangle> boxes);
+
+        /// <summary>
+        /// Addes a specific hitbox to the list of hitboxes
+        /// </summary>
+        /// <param name="box"></param>
+        void AddHitBox(Rectangle box);
+
+        /// <summary>
+        /// Removes a specific hitbox from the list of hitboxes
+        /// </summary>
+        /// <param name="box"></param>
+        void RemoveHitBox(Rectangle box);
     }
 }

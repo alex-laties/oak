@@ -39,6 +39,7 @@ namespace Oak.Engine.Graphics
             Renderables = new List<Renderable>();
         }
 
+        #region debug functions
         public void MoveLeft(int pixels)
         {
             worldView.X -= pixels;
@@ -58,6 +59,7 @@ namespace Oak.Engine.Graphics
         {
             worldView.Y += pixels;
         }
+        #endregion
 
         public void UpdateWidth(int width)
         {

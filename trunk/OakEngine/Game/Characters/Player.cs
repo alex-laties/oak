@@ -33,6 +33,8 @@ namespace Oak.Game.Characters
             set;
         }
 
+        List<Rectangle> hitBoxes;
+
         public Player() : base()
         {
             //Default State
@@ -53,6 +55,10 @@ namespace Oak.Game.Characters
 
             #region Frame Setup
             frame = new Microsoft.Xna.Framework.Rectangle(50, 500, 240, 200);
+            #endregion
+
+            #region Hitbox Setup
+            hitBoxes = new List<Rectangle>();
             #endregion
 
             #region Physics Setup
@@ -123,6 +129,26 @@ namespace Oak.Game.Characters
         public void HitBox(Rectangle hitbox)
         {
             frame = hitbox;
+        }
+
+        public List<Rectangle> HitBoxes()
+        {
+            return hitBoxes;
+        }
+
+        public void HitBoxes(List<Rectangle> boxes)
+        {
+            hitBoxes = boxes;
+        }
+
+        public void AddHitBox(Rectangle box)
+        {
+            hitBoxes.Add(box);
+        }
+
+        public void RemoveHitBox(Rectangle box)
+        {
+            hitBoxes.Remove(box);
         }
 
         #endregion

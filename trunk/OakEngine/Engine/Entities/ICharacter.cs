@@ -16,7 +16,10 @@ namespace Oak.Engine.Entities
 
     public interface ICharacter
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Returns a renderable struct for the GraphicsManager to render</returns>
         Renderable GetRenderable();
 
         /// <summary>

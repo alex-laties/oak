@@ -11,7 +11,8 @@ namespace Oak.Engine.Entities
 
     class CollidableEvent : IEvent, ICollidable
     {
-        Rectangle hitbox;
+        protected Rectangle bigHitBox;
+        protected List<Rectangle> hitBoxes;
 
         protected bool active;
 
@@ -35,7 +36,8 @@ namespace Oak.Engine.Entities
 
         public CollidableEvent()
         {
-            hitbox = new Rectangle(0, 0, 10, 10);
+            bigHitBox = new Rectangle(0, 0, 10, 10);
+            hitBoxes = new List<Rectangle>();
         }
 
         #region ICollidable Members
@@ -57,12 +59,32 @@ namespace Oak.Engine.Entities
 
         public virtual Rectangle HitBox()
         {
-            return hitbox;
+            return bigHitBox;
         }
 
         public virtual void HitBox(Rectangle hitbox)
         {
-            this.hitbox = hitbox;
+            this.bigHitBox = hitbox;
+        }
+
+        public virtual List<Rectangle> HitBoxes()
+        {
+            return hitBoxes;
+        }
+
+        public virtual void HitBoxes(List<Rectangle> boxes)
+        {
+            hitBoxes = boxes;
+        }
+
+        public virtual void AddHitBox(Rectangle box)
+        {
+            hitBoxes.Add(box);
+        }
+
+        public virtual void RemoveHitBox(Rectangle box)
+        {
+            hitBoxes.Remove(box);
         }
 
         #endregion

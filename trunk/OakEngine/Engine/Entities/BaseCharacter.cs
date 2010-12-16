@@ -9,6 +9,10 @@ using FarseerPhysics.Dynamics;
 
 namespace Oak.Engine.Entities
 {
+    /// <summary>
+    /// This class acts as the base for all characters.
+    /// Any functionality that should be available to all characters should be implemented here
+    /// </summary>
     class BaseCharacter : ICharacter
     {
 
@@ -21,17 +25,33 @@ namespace Oak.Engine.Entities
             get { return frame; }
         }
 
+        /// <summary>
+        /// Our current renderable texture.
+        /// </summary>
         protected IRenderableSprite Sprite
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Our collection of sprites available to this character
+        /// </summary>
         protected ISpriteCollection SpriteCollection
         {
             get;
             set;
         }
+
+        /// <summary>
+        /// What kind of character we are.
+        /// </summary>
+        public CharacterType CharacterType
+        {
+            get;
+            protected set;
+        }
+
 
         //TODO add physics representation?
         protected Body Body
@@ -63,6 +83,10 @@ namespace Oak.Engine.Entities
             return new Vector2(Frame.X, Frame.Y);
         }
 
+        /// <summary>
+        /// The base version of this updates the current Sprite
+        /// </summary>
+        /// <param name="time"></param>
         public virtual void Update(GameTime time)
         {
             Sprite.Update(time);

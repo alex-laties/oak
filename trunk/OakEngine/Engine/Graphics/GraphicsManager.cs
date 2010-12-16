@@ -128,6 +128,11 @@ namespace Oak.Engine.Graphics
         }
         #endregion
 
+        /// <summary>
+        /// Adds all renderables in the current view.
+        /// Auto adds the current background as well (although it does not move... I think).
+        /// </summary>
+        /// <param name="time"></param>
         public static void Update(GameTime time)
         {
             if (RenderWorld)

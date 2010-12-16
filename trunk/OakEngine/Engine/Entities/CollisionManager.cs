@@ -12,7 +12,7 @@ namespace Oak.Engine.Entities
         static List<ICollidable> enemies;
         static List<ICollidable> players;
 
-        CollisionManager()
+        static CollisionManager()
         {
             objects = new List<ICollidable>();
             enemies = new List<ICollidable>();
@@ -34,6 +34,7 @@ namespace Oak.Engine.Entities
             players.Add(toAdd);
         }
 
+        //TODO make this all much more efficient
         public static void Update(GameTime time)
         {
             //check for player collisions first
