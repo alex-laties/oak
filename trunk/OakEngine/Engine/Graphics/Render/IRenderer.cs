@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Oak.Engine.Graphics
 {
-    public struct Renderable
+    public class Renderable
     {
         public Texture2D texture;
         public Rectangle frame;
