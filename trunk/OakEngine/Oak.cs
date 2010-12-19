@@ -68,6 +68,9 @@ namespace Oak
             gs.World = world;
             gs.State = ScreenVisibleState.On;
 
+
+            
+
             //Set up the Graphics Manager
             GraphicsManager.GDM = graphics;
             GraphicsManager.Width = 1280;
@@ -79,9 +82,15 @@ namespace Oak
 
             //set up Screen Manager
             ScreenManager.SetFont(Content.Load<SpriteFont>("monofur"));
-            TestScreen t = new TestScreen();
-            t.State = ScreenVisibleState.On;
-            ScreenManager.AddScreen("test", t);
+
+            MainMenuScreen ms = new MainMenuScreen();
+            ms.State = ScreenVisibleState.On;
+            ScreenManager.AddScreen("MainMenu", ms);
+
+            //TestScreen t = new TestScreen();
+            //t.State = ScreenVisibleState.On;
+            //ScreenManager.AddScreen("test", t);
+
             ScreenManager.AddScreen("world", gs);
 
             //Set up the Keyboard Manager

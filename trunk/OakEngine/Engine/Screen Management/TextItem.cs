@@ -12,8 +12,11 @@ namespace Oak.Engine.GameScreen
     class TextItem : IMenuItem
     {
         string text = "";
-        bool selected;
+        public bool selected;
         Renderable toRender;
+
+
+        Texture2D rectangle; 
 
         Vector2 measurements, position;
         Vector2 drawPos, scale = new Vector2(1,1);
@@ -112,13 +115,34 @@ namespace Oak.Engine.GameScreen
         {
             if (selected)
             {
-                drawPos = position - new Vector2(10, 10);
+                drawPos = position - new Vector2(10, 5);
                 scale = new Vector2(1.1f, 1.1f);
+
+
+                if (rectangle == null)
+                {
+                    rectangle = Oak.ContentAccess.Load<Texture2D>("./Engine/Test Graphics/Menu/MenuItemBackground");
+                }
+                Renderable r = new Renderable();
+
+                r.texture = rectangle;
+                r.frame = new Rectangle((int)drawPos.X - 5, (int)drawPos.Y, rectangle.Width, rectangle.Height);
+                r.selection = null;
+                r.rotation = 0;
+                r.origin = Vector2.Zero;
+                r.tint = Color.White;
+                r.layerDepth = 0.5f;
+                r.effect = SpriteEffects.None;
+
+                toRender.tint = Color.Black;
+
+                GraphicsManager.AddRenderable(r);
             }
             else
             {
                 drawPos = position;
                 scale = new Vector2(1, 1);
+                toRender.tint = Color.White;
             }
 
             //prepare renderable
@@ -126,7 +150,7 @@ namespace Oak.Engine.GameScreen
             toRender.font = font;
             toRender.text = text;
             toRender.textPosition = drawPos;
-            toRender.tint = Color.White;
+            
             toRender.rotation = 0f;
             toRender.origin = Vector2.Zero;
             toRender.textScale = scale;
