@@ -66,10 +66,7 @@ namespace Oak
             world.WorldFrame = new Rectangle(0, 0, world.WorldTexture.Width, world.WorldTexture.Height);
             GameScreen gs = new GameScreen();
             gs.World = world;
-            gs.State = ScreenVisibleState.On;
-
-
-            
+            gs.State = ScreenVisibleState.Off;
 
             //Set up the Graphics Manager
             GraphicsManager.GDM = graphics;
@@ -86,6 +83,7 @@ namespace Oak
             MainMenuScreen ms = new MainMenuScreen();
             ms.State = ScreenVisibleState.On;
             ScreenManager.AddScreen("MainMenu", ms);
+            ScreenManager.FocusScreen("MainMenu");
 
             //TestScreen t = new TestScreen();
             //t.State = ScreenVisibleState.On;
@@ -108,7 +106,12 @@ namespace Oak
             });
 
             //Debug Keys
-
+            kbm.BindKey(Keys.Space, delegate(GameTime time)
+            {
+                ScreenManager.ToggleScreen("MainMenu", ScreenVisibleState.On);
+                ScreenManager.ToggleScreen("world", ScreenVisibleState.Off);
+                ScreenManager.FocusScreen("MainMenu");
+            });
 
             base.Initialize();
         }

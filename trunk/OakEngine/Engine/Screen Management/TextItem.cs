@@ -142,7 +142,7 @@ namespace Oak.Engine.GameScreen
             {
                 drawPos = position;
                 scale = new Vector2(1, 1);
-                toRender.tint = Color.White;
+                toRender.tint = Color.Blue;
             }
 
             //prepare renderable

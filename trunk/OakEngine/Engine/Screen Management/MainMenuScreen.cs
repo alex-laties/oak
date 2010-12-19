@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Oak.Engine.Graphics;
 
 namespace Oak.Engine.GameScreen
 {
@@ -39,7 +40,23 @@ namespace Oak.Engine.GameScreen
 
         public override void UpdateOn(GameTime time)
         {
-           
+            //Create Background Renderable
+            Texture2D bgimage = Oak.ContentAccess.Load<Texture2D>("./Engine/Test Graphics/Backgrounds/MainMenuBackground");
+
+            Renderable bg = new Renderable();
+
+            bg.isText = false;
+            bg.frame = new Rectangle(0, 0, bgimage.Width, bgimage.Height);
+            bg.texture = bgimage;
+            bg.origin = new Vector2(0, 0);
+            bg.selection = null;
+            bg.rotation = 0;
+            bg.layerDepth = 0.4f;
+            bg.tint = Color.White;
+            bg.effect = SpriteEffects.None;
+
+            GraphicsManager.AddRenderable(bg);
+
             base.UpdateOn(time);
         }
 
@@ -81,6 +98,13 @@ namespace Oak.Engine.GameScreen
         public void MenuAction(GameTime time)
         {
             //Do stuff here.....
+            if (SelectedIndex == 0)
+            {
+                ScreenManager.ToggleScreen("MainMenu");
+                ScreenManager.ToggleScreen("world", ScreenVisibleState.On);
+                ScreenManager.FocusScreen("world");
+            }
+
             if (SelectedIndex == 2)
             {
                 State = ScreenVisibleState.Off;

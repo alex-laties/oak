@@ -24,6 +24,12 @@ namespace Oak.Engine.GameScreen
             get;
             set;
         }
+        
+        public bool InFocus
+        {
+            get;
+            set;
+        }
 
         public BaseScreen()
         {
@@ -32,7 +38,8 @@ namespace Oak.Engine.GameScreen
 
         public void Update(GameTime gameTime)
         {
-            kbm.Update(gameTime);
+            if (InFocus)
+                kbm.Update(gameTime);
 
             switch (State)
             {

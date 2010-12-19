@@ -35,16 +35,15 @@ namespace Oak.Engine.GameScreen
             screens[name].State = state;
         }
 
-        //TODO fix this method
         public static void FocusScreen(string name)
         {
             foreach (BaseScreen screen in screens.Values)
             {
-                screen.State = ScreenVisibleState.Off;
+                screen.InFocus = false;
             }
 
-            screens[name].State = ScreenVisibleState.On;
-            Interpreter.Console.Log("Sorry, this function is currently a little bugged out.");
+            screens[name].InFocus = true;
+            //Interpreter.Console.Log("Sorry, this function is currently a little bugged out.");
         }
 
         public static void Update(GameTime gameTime)

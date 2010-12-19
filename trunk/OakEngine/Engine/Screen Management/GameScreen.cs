@@ -28,7 +28,6 @@ namespace Oak.Engine.GameScreen
         public override void UpdateOff(Microsoft.Xna.Framework.GameTime gameTime)
         {
             GraphicsManager.RenderWorld = false;
-            base.UpdateOff(gameTime);
         }
     }
 }
